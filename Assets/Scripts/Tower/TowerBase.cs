@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class TowerBase : MonoBehaviour
 {
-    [SerializeField] GameObject bulletObj;
+    [SerializeField] GameObject bulletPrefab;
     [SerializeField] float range;
     protected bool isReady;
     private CircleCollider2D circleCollider;
@@ -30,7 +30,7 @@ public abstract class TowerBase : MonoBehaviour
 
     protected void FireBullet(Vector2 dir) //dir방향으로 나가는 탄막을 발사
     {
-        GameObject obj = ObjectPool.Instance.GetObject(bulletObj);
+        GameObject obj = ObjectPool.Instance.GetObject(bulletPrefab);
         BasicBullet bullet = obj.GetComponent<BasicBullet>();
         obj.transform.position = transform.position;
         bullet.SetDir(dir);
