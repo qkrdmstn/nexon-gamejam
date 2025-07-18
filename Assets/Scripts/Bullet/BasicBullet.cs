@@ -39,14 +39,14 @@ public class BasicBullet : MonoBehaviour
         if (collision.CompareTag("Monster"))
         {
             //몬스터 데미지 입히는 함수
+            collision.GetComponent<MonsterHP>().OnDamage(damage);            
             Die();
-            Debug.Log("Monster Damaged");
         }
         else if (collision.CompareTag("Player"))
         {
             //플레이어 데미지 입히는 함수
+            collision.GetComponent<Player>().OnDamage(damage);            
             Die();
-            Debug.Log("Play Damaged");
         }
     }
 

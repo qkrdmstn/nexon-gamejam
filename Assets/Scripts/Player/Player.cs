@@ -8,8 +8,8 @@ using UnityEngine.U2D;
 public class Player : MonoBehaviour
 {
     [Header("Life Info")]
-    int curHP = 10;
-    int maxHP = 10;
+    [SerializeField] float curHP = 10;
+    float maxHP = 10;
     [SerializeField] private float hitDuration = 0.6f;
 
     [Header("Move Info")]
@@ -76,9 +76,10 @@ public class Player : MonoBehaviour
         rb.velocity = vel;
     }
 
-    public void OnDamamged(int damage)
+    public void OnDamage(float damage)
     {
         //Change Layer & Change Color
+        curHP -= damage;
         ChangePlayerLayer(7);
         StartCoroutine(DamagedProcess(hitDuration));
     }
@@ -126,14 +127,6 @@ public class Player : MonoBehaviour
     public void ChangePlayerLayer(int layer)
     {
         gameObject.layer = layer;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Bullet"))
-        {
-            OnDamamged(1);
-        }
     }
 
     private void OnDrawGizmos()
