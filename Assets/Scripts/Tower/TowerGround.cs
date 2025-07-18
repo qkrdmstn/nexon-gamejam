@@ -8,6 +8,7 @@ public class TowerGround : MonoBehaviour //타워가 들어갈 수 있는 자리. 타워가 드
 
     private void Start()
     {
+        IsEmpty = true;
         highlight.SetActive(false);
     }
 
