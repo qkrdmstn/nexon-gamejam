@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum MonsterType
+{
+    Monster1,
+    Monster2,
+    Monster3,
+}
+
 public class Monster : MonoBehaviour
 {
-    [Header("Life Info")]
-    public int maxHP;
-    public int curHP;
+    [SerializeField]
+    private Transform[] wayPoints;
+    [SerializeField]
+    private int wayPointCnt;
+    [SerializeField]
+    private int currentIndex;
+    [SerializeField]
+    private Vector3 moveDir;
+    [SerializeField]
+    private float moveSpeed;
 
-    [Header("Move Info")]
-    public Transform[] wayPoints;
-    public int wayPointCnt;
-    public int currentIndex;
-    public Vector3 moveDir;
-    public float moveSpeed;
+    private MonsterSpawner monsterSpawner;
+    [SerializeField]
+    int gold = 10;
 
     //몬스터 way point 초기 설정
     public void SetUp(Transform[] wayPoints)
     {
+        monsterSpawner = FindAnyObjectByType<MonsterSpawner>();
+
         wayPointCnt = wayPoints.Length;
         this.wayPoints = new Transform[wayPointCnt];
         this.wayPoints = wayPoints;
@@ -52,7 +65,7 @@ public class Monster : MonoBehaviour
     private void NextMoveTo()
     {
         //마지막 노드가 아니라면, 위치 보정 후 방향 수정
-        if(currentIndex < wayPointCnt - 1)
+        if (currentIndex < wayPointCnt - 1)
         {
             transform.position = wayPoints[currentIndex].position;
             currentIndex++;
@@ -60,24 +73,21 @@ public class Monster : MonoBehaviour
             moveDir = direction;
         }
         else
-            Destroy(gameObject);
+            OnDead(MonsterDestroyType.Arrive);
     }
 
-    private void OnDamaged(int damage)
-    {
-        curHP -= damage;
-    }
+ 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Bullet"))
         {
-            OnDamaged(1);
+            //OnDamaged(1);
         }
     }
 
-    private void Dead()
+    public void OnDead(MonsterDestroyType type)
     {
-        Destroy(gameObject);
+        monsterSpawner.DestoryMonster(type, this, gold);
     }
 }
