@@ -35,6 +35,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         rectTransform = GetComponent<RectTransform>();
         lockUI.SetActive(!canPurchase);
+        CheckPurchase(GameManager.instance.gold);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -54,9 +55,9 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         //Debug.Log("UI 클릭 해제");
         if (canInstall)
         {
-            var towerObj = MapManager.Instance.GetTower(type);
-            int towerCost = towerObj.GetComponent<TowerBase>().cost;
-            //towerCost만큼 Gold를 소모하는 함수 호출
+            var towerObj = MapManager.Instance.GetTowerObj(type);
+            int towerCost = MapManager.Instance.GetTowerCost(type);
+            GameManager.instance.UseGold(towerCost);
             towerObj.transform.position = touchingGround.transform.position;
             touchingGround.IsEmpty = false;
         }
@@ -114,9 +115,9 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         }
     }
 
-    public void CheckPurchase(int currentGold) //GameManager에서 Gold를 얻을 때마다 이걸 호출해야함.
+    public void CheckPurchase(int currentGold) //GameManager에서 Gold가 변동할 때마다 이걸 호출해야함.
     {
-        if (MapManager.Instance.GetTower(type).GetComponent<TowerBase>().cost <= currentGold)
+        if (MapManager.Instance.GetTowerCost(type) <= currentGold)
         {
             canPurchase = true;
         }
