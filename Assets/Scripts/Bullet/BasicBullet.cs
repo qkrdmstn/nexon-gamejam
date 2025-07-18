@@ -55,6 +55,12 @@ public class BasicBullet : MonoBehaviour
         transform.right = dir;
     }
 
+    public void InvDir(Vector3 playerPos, float multiplier)
+    {
+        Vector3 dir = transform.position - playerPos;
+        rigid.velocity = dir.normalized * speed;
+    }
+
     public void Die()
     {
         timer = 55;

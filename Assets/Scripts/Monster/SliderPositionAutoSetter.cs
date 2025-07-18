@@ -5,7 +5,7 @@ using UnityEngine;
 public class SliderPositionAutoSetter : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 distance = Vector3.down * 20.0f;
+    private Vector2 distance;
     private Transform targetTransform;
     private RectTransform rectTransform;
 
@@ -23,7 +23,7 @@ public class SliderPositionAutoSetter : MonoBehaviour
             return;
         }
 
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(targetTransform.position);
-        rectTransform.position = screenPosition + distance;
+        rectTransform.anchoredPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, targetTransform.position) - new Vector2(Screen.width/2f, Screen.height / 2f);
+        rectTransform.anchoredPosition += distance;
     }
 }

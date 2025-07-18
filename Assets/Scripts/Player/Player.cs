@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
 
     [Header("Parrying Info")]
     public float parryingRadius;
+    public float speedMultiplier;
 
     #region Componets
     public Rigidbody2D rb { get; private set; }
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
         stateMachine.currentState.Update();
 
         if (Input.GetKeyDown(KeyCode.Space))
-            Parrying(1.0f);
+            Parrying(parryingRadius);
 
     }
 
@@ -109,7 +110,9 @@ public class Player : MonoBehaviour
             GameObject target = inRangeTarget[i].gameObject;
             if (target.CompareTag("Bullet"))
             {
-                //To do. Bullet Reflection
+                Debug.Log(target);
+                BasicBullet bullet = target.GetComponent<BasicBullet>();
+                bullet.InvDir(this.transform.position, speedMultiplier);
             }
         }
     }
