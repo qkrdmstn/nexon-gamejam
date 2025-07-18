@@ -3,26 +3,38 @@ using UnityEngine;
 
 public abstract class TowerBase : MonoBehaviour
 {
-    [SerializeField] CircleCollider2D collider;
-
+    [SerializeField] GameObject bulletObj;
+    [SerializeField] float range;
+    protected bool isReady;
+    private CircleCollider2D circleCollider;
 
     private void Awake()
     {
-        collider = GetComponent<CircleCollider2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
     }
-
-    private void Update()
+    private void Start()
     {
-
+        circleCollider.radius = range;
+        isReady = true;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Monster")
+        if (collision.CompareTag("Monster"))
         {
-            ShootTask();
+            if (isReady)
+                StartCoroutine(ShootTask());
             Debug.Log("MonsterDetected!");
         }
+    }
+
+    protected void FireBullet(Vector2 dir) //dir방향으로 나가는 탄막을 발사
+    {
+        GameObject obj = ObjectPool.Instance.GetObject(bulletObj);
+        BasicBullet bullet = obj.GetComponent<BasicBullet>();
+        obj.transform.position = transform.position;
+        bullet.SetDir(dir);
+        obj.SetActive(true);
     }
 
     protected abstract IEnumerator ShootTask();
