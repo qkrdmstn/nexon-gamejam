@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d661a81648701e34592f8eed8b08a2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 15
   bulletPrefab: {fileID: 3460312307952903305, guid: 39520a38df15df84c93d524e38aaa49d, type: 3}
   range: 6
   patternInterval: 1

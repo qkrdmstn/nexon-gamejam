@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class TowerBase : MonoBehaviour
 {
+    [SerializeField] public int cost;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float range;
     [SerializeField] protected float patternInterval;
