@@ -3,23 +3,22 @@ using UnityEngine;
 
 public class TestTower : TowerBase
 {
-    [SerializeField] float patternInterval;
-
+    [SerializeField] int bulletCnt;
     protected override IEnumerator ShootTask()
     {
         isReady = false;
-        BasicPattern(10);
+        BasicPattern();
         yield return new WaitForSeconds(patternInterval);
         isReady = true;
     }
 
-    private void BasicPattern(int bulletNum)
+    private void BasicPattern()
     {
         Debug.Log("Basic Pattern");
-        float anglePlus = 360f / bulletNum;
+        float anglePlus = 360f / bulletCnt;
         float angle = 0f;
 
-        for (int i = 0; i < bulletNum; i++)
+        for (int i = 0; i < bulletCnt; i++)
         {
             // 회전 각도를 라디안으로 변환
             float projectileDirX = Mathf.Cos(angle * Mathf.Deg2Rad);

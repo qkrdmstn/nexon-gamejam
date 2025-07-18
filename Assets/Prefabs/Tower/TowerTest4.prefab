@@ -49,6 +49,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3460312307952903305, guid: 373bbf7ea2fc3a14e8ab4157596ccb83, type: 3}
   range: 6
   patternInterval: 1.5
+  bulletCnt: 10
 --- !u!58 &1420139381838463824
 CircleCollider2D:
   m_ObjectHideFlags: 0

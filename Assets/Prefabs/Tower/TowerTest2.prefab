@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7026391886704432122}
-  - component: {fileID: 1510559052515841920}
+  - component: {fileID: 8360969238540013784}
   - component: {fileID: 1049833309390203006}
   m_Layer: 0
   m_Name: TowerTest2
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 6262596980506457342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1510559052515841920
+--- !u!114 &8360969238540013784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,12 +127,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8038391462898589332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9331a0835c1e33041951bd6b82a2baa0, type: 3}
+  m_Script: {fileID: 11500000, guid: 998d8723f129b5e4a9c34a2edf6d4743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3460312307952903305, guid: 0bad68fe85c02624b88838289491a32e, type: 3}
   range: 6
-  patternInterval: 1.5
+  patternInterval: 3
+  bulletCnt: 20
+  delta: 15
+  delay: 0.25
 --- !u!58 &1049833309390203006
 CircleCollider2D:
   m_ObjectHideFlags: 0
