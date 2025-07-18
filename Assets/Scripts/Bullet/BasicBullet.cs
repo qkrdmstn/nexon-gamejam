@@ -3,8 +3,12 @@ using UnityEngine;
 public class BasicBullet : MonoBehaviour
 {
     [SerializeField] float damage;
+    [SerializeField] float originalDamage;
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
+    [SerializeField] float originalScale;
+    [SerializeField] float parryingDamage;
+    [SerializeField] float parryingScale;
 
     private CircleCollider2D circleCollider;
     private Rigidbody2D rigid;
@@ -55,15 +59,19 @@ public class BasicBullet : MonoBehaviour
         transform.right = dir;
     }
 
-    public void InvDir(Vector3 playerPos, float multiplier)
+    public void ParryingBullet(Vector3 playerPos, float multiplier)
     {
         Vector3 dir = transform.position - playerPos;
-        rigid.velocity = dir.normalized * speed;
+        rigid.velocity = dir.normalized * speed * multiplier;
+        transform.localScale = new Vector3(parryingScale, parryingScale);
+        damage = parryingDamage;
     }
 
     public void Die()
     {
         timer = 55;
         ObjectPool.Instance.ReturnObject(gameObject);
+        transform.localScale = new Vector3(originalScale, originalScale);
+        damage = originalDamage;
     }
 }

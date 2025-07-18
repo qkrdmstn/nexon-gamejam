@@ -4,6 +4,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.U2D;
 
+public enum PlayerDamageType
+{
+    Monster,
+    Bullet
+}
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +33,7 @@ public class Player : MonoBehaviour
     #region Componets
     public Rigidbody2D rb { get; private set; }
     public Collider2D col { get; private set; }
+    public SpriteRenderer spriteRenderer;
     #endregion
 
     #region States
@@ -47,6 +53,7 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         stateMachine.Initialize(idleState);
     }
@@ -79,7 +86,7 @@ public class Player : MonoBehaviour
     public void OnDamage(float damage)
     {
         //Change Layer & Change Color
-        curHP -= damage;
+        GameManager.instance.curHP -= damage;
         ChangePlayerLayer(7);
         StartCoroutine(DamagedProcess(hitDuration));
     }
@@ -88,11 +95,23 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            //animController.SetMaterialColor(new Color(1, 1, 1, 0.4f));
+            Color color = spriteRenderer.color;
+            
+            //적의 투명도 조정
+            color.a = 0.4f;
+            spriteRenderer.color = color;
+
             yield return new WaitForSeconds(duration / 4.0f);
 
-            //animController.SetMaterialColor(new Color(1, 1, 1, 1f));
+
+            color.a = 1.0f;
+            spriteRenderer.color = color;
+
             yield return new WaitForSeconds(duration / 4.0f);
+
+            //animController.SetMaterialColor(new Color(1, 1, 1, 0.4f));
+
+            //animController.SetMaterialColor(new Color(1, 1, 1, 1f));
         }
         ChangePlayerLayer(6);
         isDamaged = false;
@@ -113,7 +132,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log(target);
                 BasicBullet bullet = target.GetComponent<BasicBullet>();
-                bullet.InvDir(this.transform.position, speedMultiplier);
+                bullet.ParryingBullet(this.transform.position, speedMultiplier);
             }
         }
     }

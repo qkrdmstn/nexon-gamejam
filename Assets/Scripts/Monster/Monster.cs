@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
     private Vector3 moveDir;
     [SerializeField]
     private float moveSpeed;
+    public float arrivedDamage;
 
     private MonsterSpawner monsterSpawner;
     [SerializeField]
@@ -74,16 +75,6 @@ public class Monster : MonoBehaviour
         }
         else
             OnDead(MonsterDestroyType.Arrive);
-    }
-
- 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Bullet"))
-        {
-            //OnDamaged(1);
-        }
     }
 
     public void OnDead(MonsterDestroyType type)

@@ -49,11 +49,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3460312307952903305, guid: 373bbf7ea2fc3a14e8ab4157596ccb83, type: 3}
   range: 6
   patternInterval: 2
-  bulletCnt: 8
-  repeatCnt: 3
-  delta: 45
+  bulletCnt: 16
+  repeatCnt: 10
+  delta: 25
   delayIn: 0.15
-  delayLaser: 0.5
+  delayLaser: 0.25
 --- !u!58 &1420139381838463824
 CircleCollider2D:
   m_ObjectHideFlags: 0

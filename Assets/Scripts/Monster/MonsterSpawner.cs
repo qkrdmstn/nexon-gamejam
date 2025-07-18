@@ -20,6 +20,8 @@ public class MonsterSpawner : MonoBehaviour
     private Transform[] wayPoints;
     private Wave currentWave; //현재 웨이브 정보
     private List<Monster> monsterList; //현재 맵에 존재하는 모든 적의 정보
+    [SerializeField]
+    private GameObject goldPrefab;
 
     public List<Monster> MonsterList => monsterList;
     // Start is called before the first frame update
@@ -57,11 +59,12 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (type == MonsterDestroyType.Arrive)
         {
-            //플레이어 데미지
+            GameManager.instance.OnDamage(monster.arrivedDamage);
         }
         else if (type == MonsterDestroyType.Kill)
         {
-            //골드 획득
+            GameObject goldObj = Instantiate(goldPrefab, monster.transform.position, Quaternion.identity);
+            goldObj.GetComponent<Gold>().quantity = gold;
         }
 
         monsterList.Remove(monster);
