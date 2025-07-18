@@ -6,6 +6,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
     [SerializeField] TowerType type;
     [SerializeField] Color greenFadeColor;
+    [SerializeField] GameObject lockUI;
     Color initColor;
     Color originFadeColor;
     TowerGround touchingGround;
@@ -13,6 +14,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     float initScale;
     Image image;
     bool canInstall;
+    bool canPurchase;
     RectTransform rectTransform;
 
     static float SLOW_SCALE = 0.05f;
@@ -25,17 +27,20 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         initPos = transform.position;
         initScale = transform.localScale.x;
         canInstall = false;
+        canPurchase = false;
         touchingGround = null;
     }
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        lockUI.SetActive(!canPurchase);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("UI 클릭 시작");
+        if (!canPurchase) return;
+        //Debug.Log("UI 클릭 시작");
         SetScale(1);
         image.color = originFadeColor;
         canInstall = false;
@@ -45,10 +50,13 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("UI 클릭 해제");
+        if (!canPurchase) return;
+        //Debug.Log("UI 클릭 해제");
         if (canInstall)
         {
             var towerObj = MapManager.Instance.GetTower(type);
+            int towerCost = towerObj.GetComponent<TowerBase>().cost;
+            //towerCost만큼 Gold를 소모하는 함수 호출
             towerObj.transform.position = touchingGround.transform.position;
             touchingGround.IsEmpty = false;
         }
@@ -62,7 +70,8 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("UI 드래그 중...");
+        if (!canPurchase) return;
+        //Debug.Log("UI 드래그 중...");
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
         transform.position = Camera.main.ScreenToWorldPoint(mousePos);
 
@@ -103,6 +112,19 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             image.color = originFadeColor;
             canInstall = false;
         }
+    }
+
+    public void CheckPurchase(int currentGold) //GameManager에서 Gold를 얻을 때마다 이걸 호출해야함.
+    {
+        if (MapManager.Instance.GetTower(type).GetComponent<TowerBase>().cost <= currentGold)
+        {
+            canPurchase = true;
+        }
+        else
+        {
+            canPurchase = false;
+        }
+        lockUI.SetActive(!canPurchase);
     }
 
     private void SetScale(float value)
