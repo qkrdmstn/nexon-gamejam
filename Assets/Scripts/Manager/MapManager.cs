@@ -34,8 +34,13 @@ public class MapManager : MonoBehaviour
             towerGrounds.ForEach(tg => tg.HighlightOff());
     }
 
-    public GameObject GetTower(TowerType type)
+    public GameObject GetTowerObj(TowerType type)
     {
         return Instantiate(towerPrefabs[(int)type]);
+    }
+
+    public int GetTowerCost(TowerType type)
+    {
+        return towerPrefabs[(int)type].GetComponent<TowerBase>().cost;
     }
 }
