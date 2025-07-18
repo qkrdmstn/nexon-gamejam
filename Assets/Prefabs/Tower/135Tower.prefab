@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5602642745088352874}
-  - component: {fileID: 3605146975983424420}
+  - component: {fileID: -7349961822819609063}
   - component: {fileID: 1420139381838463824}
   m_Layer: 0
-  m_Name: TowerTest4
+  m_Name: 135Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 6520558932321728785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3605146975983424420
+--- !u!114 &-7349961822819609063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,18 +43,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2333676836068259348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 141e8c9cb6e83bc4c89e81a2a310e26e, type: 3}
+  m_Script: {fileID: 11500000, guid: d661a81648701e34592f8eed8b08a2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  bulletPrefab: {fileID: 3460312307952903305, guid: 373bbf7ea2fc3a14e8ab4157596ccb83, type: 3}
+  cost: 15
+  bulletPrefab: {fileID: 3460312307952903305, guid: 39520a38df15df84c93d524e38aaa49d, type: 3}
   range: 6
-  patternInterval: 2
-  bulletCnt: 16
-  repeatCnt: 10
-  delta: 25
-  delayIn: 0.15
-  delayLaser: 0.25
+  patternInterval: 1
+  bulletCnt: 8
+  delta: 135
+  delay: 0.5
 --- !u!58 &1420139381838463824
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +162,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.94425535, b: 1, a: 1}
+  m_Color: {r: 0.91501844, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

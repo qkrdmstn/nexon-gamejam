@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8360969238540013784}
   - component: {fileID: 1049833309390203006}
   m_Layer: 0
-  m_Name: TowerTest2
+  m_Name: SpiralTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

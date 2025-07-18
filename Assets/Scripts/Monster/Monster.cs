@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum MonsterType
@@ -24,6 +22,7 @@ public class Monster : MonoBehaviour
     private float moveSpeed;
     public float arrivedDamage;
 
+    private float initMoveSpeed;
     private MonsterSpawner monsterSpawner;
     [SerializeField]
     int gold = 10;
@@ -41,6 +40,11 @@ public class Monster : MonoBehaviour
         StartCoroutine(OnMove());
     }
 
+    private void Start()
+    {
+        initMoveSpeed = moveSpeed;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -51,13 +55,13 @@ public class Monster : MonoBehaviour
     {
         //다음 노드로 이동
         NextMoveTo();
-        while(true)
+        while (true)
         {
             //몬스터 회전
             //transform.Rotate(Vector3.forward * 10);
-            
+
             //목적지에 도착
-            if(Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * moveSpeed)
+            if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * moveSpeed)
                 NextMoveTo();
             yield return null;
         }
@@ -80,5 +84,16 @@ public class Monster : MonoBehaviour
     public void OnDead(MonsterDestroyType type)
     {
         monsterSpawner.DestoryMonster(type, this, gold);
+    }
+
+    public void RestoreMoveSpeed() //이동속도 원상 복구
+    {
+        moveSpeed = initMoveSpeed;
+        Debug.Log("이동속도 원상복구");
+    }
+    public void DecreaseMoveSpeed(int decreasePercent) //이동속도를 decreasePercent% 감소 
+    {
+        moveSpeed *= 1 - decreasePercent * 0.01f;
+        Debug.Log("이동속도 감소");
     }
 }
