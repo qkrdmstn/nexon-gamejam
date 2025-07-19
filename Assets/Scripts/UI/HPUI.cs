@@ -11,12 +11,12 @@ public class HPUI : MonoBehaviour
     void Start()
     {
         HPUIUpdate();
-        GameManager.instance.OnDamaged += HPUIUpdate;
+        GameManager.instance.OnHPChanged += HPUIUpdate;
     }
 
     private void OnDestroy()
     {
-        GameManager.instance.OnDamaged -= HPUIUpdate;
+        GameManager.instance.OnHPChanged -= HPUIUpdate;
     }
 
     private void HPUIUpdate()

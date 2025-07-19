@@ -22,11 +22,12 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
     private float initMoveSpeed;
+    private bool isDead;
 
     //Ã³Ä¡ ½Ã È¹µæ °ñµå
     [SerializeField]
     private int gold = 10;
-    private float parrying = 10.0f;
+    public float parrying = 10.0f;
     
     //±âÅ¸ ÄÄÆ÷³ÍÆ®
     private MonsterSpawner monsterSpawner;
@@ -54,6 +55,7 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead) return;
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }
 
@@ -92,7 +94,17 @@ public class Monster : MonoBehaviour
 
     public void OnDead(MonsterDestroyType type)
     {
-        monsterAnimController.SetCurrentAnimation(MonsterAnimState.Dead);
+        StartCoroutine(OnDeadCoroutine(type));
+    }
+
+    public IEnumerator OnDeadCoroutine(MonsterDestroyType type)
+    {
+        isDead = true;
+        if (type == MonsterDestroyType.Kill)
+        {
+            monsterAnimController.SetCurrentAnimation(MonsterAnimState.Dead);
+            yield return new WaitForSeconds(0.7f);
+        }
         monsterSpawner.DestoryMonster(type, this, gold);
     }
 

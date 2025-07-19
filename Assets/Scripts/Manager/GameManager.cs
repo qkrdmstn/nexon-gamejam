@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public CinemachineImpulseSource impulseSource;
     [SerializeField] List<TowerShopIcon> towershops;
     public event Action OnGolded; //골드 획득했을 때 콜백 이벤트
-    public event Action OnDamaged; //HP 닳았을 때 콜백 이벤트
+    public event Action OnHPChanged; //HP 닳았을 때 콜백 이벤트
     public static GameManager instance;
     void Awake()
     {
@@ -60,14 +60,15 @@ public class GameManager : MonoBehaviour
 
     public void RecoverHP(int num = 1)
     {
-        curHP = Mathf.Max(maxHP, curHP + num);
+        curHP = Mathf.Min(maxHP, curHP + num);
+        OnHPChanged.Invoke();
     }
 
     public void OnDamage(int damage = 1)
     {
         curHP -= damage;
         impulseSource.GenerateImpulse();
-        OnDamaged.Invoke();
+        OnHPChanged.Invoke();
         if (curHP <= 0)
             GameOver();
     }

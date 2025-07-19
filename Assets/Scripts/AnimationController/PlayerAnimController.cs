@@ -4,12 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //애니메이션 Enum
-public enum MonsterAnimState
+public enum PlayerAnimState
 {
-    Run, Dead
+    Run, Hit, Die
 }
 
-public class MonsterAnimController : MonoBehaviour
+public enum PlayerMoveDir
+{
+    Front, Back
+}
+
+public class PlayerAnimController : MonoBehaviour
 {
     public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset[] AnimClip;
