@@ -84,6 +84,11 @@ public class Monster : MonoBehaviour
             currentIndex++;
             Vector3 direction = (wayPoints[currentIndex].position - transform.position).normalized;
             moveDir = direction;
+
+            if (moveDir.x < 0)
+                transform.localScale = new Vector3(1f, transform.localScale.y, transform.localScale.z);
+            else
+                transform.localScale = new Vector3(-1f, transform.localScale.y, transform.localScale.z);
             monsterAnimController.SetCurrentAnimation(MonsterAnimState.Run);
         }
         else

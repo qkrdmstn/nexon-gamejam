@@ -8,8 +8,9 @@ public class MonsterHP : MonoBehaviour
     private float maxHP;
     private float currentHP;
     private bool isDead = false;
+    private float hitDuration = 0.5f;
     private Monster monster;
-    private SpriteRenderer spriteRenderer;
+    private MonsterAnimController monsterAnimController;
 
     public float MaxHP => maxHP;
     public float CurrentHP => currentHP;
@@ -18,7 +19,7 @@ public class MonsterHP : MonoBehaviour
     {
         currentHP = maxHP;
         monster = GetComponent<Monster>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        monsterAnimController = GetComponent<MonsterAnimController>();
     }
 
     public void OnDamage(float damage)
@@ -26,8 +27,8 @@ public class MonsterHP : MonoBehaviour
         if (isDead) return;
         currentHP -= damage;
 
-        StopCoroutine("HitAlphaAnimation");
-        StartCoroutine("HitAlphaAnimation");
+        StopCoroutine(DamagedProcess(hitDuration));
+        StartCoroutine(DamagedProcess(hitDuration));
         if(currentHP <= 0)
         {
             isDead = true;
@@ -35,17 +36,18 @@ public class MonsterHP : MonoBehaviour
         }
     }
 
-    private IEnumerator HitAlphaAnimation()
+    IEnumerator DamagedProcess(float duration)
     {
-        Color color = spriteRenderer.color;
+        for (int i = 0; i < 2; i++)
+        {
+            //적의 투명도 조정
+            monsterAnimController.SetMaterialColor(new Color(1, 1, 1, 0.4f));
+            yield return new WaitForSeconds(duration / 4.0f);
 
-        //적의 투명도 조정
-        color.a = 0.4f;
-        spriteRenderer.color = color;
+            monsterAnimController.SetMaterialColor(new Color(1, 1, 1, 1f));
 
-        yield return new WaitForSeconds(0.05f);
-
-        color.a = 1.0f;
-        spriteRenderer.color = color;
+            yield return new WaitForSeconds(duration / 4.0f);
+        }
     }
+
 }

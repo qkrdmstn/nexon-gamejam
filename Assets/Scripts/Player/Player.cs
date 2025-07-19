@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.U2D;
-
+using Cinemachine;
 public enum PlayerDamageType
 {
     Monster,
@@ -29,11 +29,12 @@ public class Player : MonoBehaviour
     [Header("Parrying Info")]
     public float parryingRadius;
     public float speedMultiplier;
-
+    
     #region Componets
     public Rigidbody2D rb { get; private set; }
     public Collider2D col { get; private set; }
     public SpriteRenderer spriteRenderer;
+    public CinemachineImpulseSource impulseSource;
     #endregion
 
     #region States
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         //cameraManager = FindObjectOfType<CameraManager>();
-        //impulseSource = GetComponent<CinemachineImpulseSource>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Update()
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour
     {
         //Change Layer & Change Color
         GameManager.instance.OnDamage(damage);
+        impulseSource.GenerateImpulse();
         ChangePlayerLayer(7);
         StartCoroutine(DamagedProcess(hitDuration));
     }
@@ -135,6 +137,7 @@ public class Player : MonoBehaviour
                 bullet.ParryingBullet(this.transform.position, speedMultiplier);
             }
         }
+        impulseSource.GenerateImpulse();
     }
 
     public void SetIdleStatePlayer()
