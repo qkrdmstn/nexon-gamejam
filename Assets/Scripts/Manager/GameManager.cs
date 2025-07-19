@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class GameManager : MonoBehaviour
     public float curHP;
     public float maxHP;
     [SerializeField] List<TowerShopIcon> towershops;
+    public event Action OnGolded; //°ñµå È¹µæÇßÀ» ¶§ ÄÝ¹é ÀÌº¥Æ®
+    public event Action OnDamaged; //HP ´â¾ÒÀ» ¶§ ÄÝ¹é ÀÌº¥Æ®
 
     public static GameManager instance;
     void Awake()
@@ -32,16 +35,19 @@ public class GameManager : MonoBehaviour
     {
         gold += num;
         towershops.ForEach(ts => ts.CheckPurchase(gold));
+        OnGolded.Invoke();
     }
 
     public void UseGold(int num)
     {
         gold -= num;
         towershops.ForEach(ts => ts.CheckPurchase(gold));
+        OnGolded.Invoke();
     }
 
     public void OnDamage(float damage)
     {
         curHP -= damage;
+        OnDamaged.Invoke();
     }
 }

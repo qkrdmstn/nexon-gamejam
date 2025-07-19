@@ -61,7 +61,7 @@ public class Monster : MonoBehaviour
             //transform.Rotate(Vector3.forward * 10);
 
             //목적지에 도착
-            if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.02f * moveSpeed)
+            if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.05f * moveSpeed)
                 NextMoveTo();
             yield return null;
         }

@@ -111,6 +111,7 @@ MonoBehaviour:
   currentIndex: 0
   moveDir: {x: 0, y: 0, z: 0}
   moveSpeed: 1.2
+  arrivedDamage: 2
   gold: 10
 --- !u!114 &5183200417876546056
 MonoBehaviour:

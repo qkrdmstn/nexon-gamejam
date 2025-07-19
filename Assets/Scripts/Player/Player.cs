@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     public void OnDamage(float damage)
     {
         //Change Layer & Change Color
-        GameManager.instance.curHP -= damage;
+        GameManager.instance.OnDamage(damage);
         ChangePlayerLayer(7);
         StartCoroutine(DamagedProcess(hitDuration));
     }
