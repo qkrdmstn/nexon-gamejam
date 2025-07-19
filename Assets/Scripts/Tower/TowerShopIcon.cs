@@ -35,7 +35,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        lockUI.SetActive(!canPurchase);
+        SetLock();
         explainUI.SetActive(false);
         CheckPurchase();
         GameManager.instance.OnGolded += CheckPurchase;
@@ -140,11 +140,16 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         {
             canPurchase = false;
         }
-        lockUI.SetActive(!canPurchase);
+        SetLock();
     }
 
     private void SetScale(float value)
     {
         transform.localScale = new Vector3(value, value, 1);
+    }
+
+    private void SetLock()
+    {
+        lockUI.SetActive(!canPurchase);
     }
 }

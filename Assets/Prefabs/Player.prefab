@@ -82,7 +82,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &6990210806251897193
 MonoBehaviour:
@@ -160,8 +160,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8341877880658050302}
   - {fileID: 1788667390739744777}
+  - {fileID: 8341877880658050302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5404884684387135580
@@ -179,13 +179,14 @@ MonoBehaviour:
   hitDuration: 1
   moveSpeed: 3
   isDamaged: 0
+  isParrying: 0
+  isDead: 0
   parryingRadius: 2.42
   speedMultiplier: 10
   parryingGauge: 0
   parryingGaugeRecoveryTimer: 0
   parryingGaugeRecoveryInterval: 3
   parryingGaugeRecoveryValue: 30
-  isParrying: 0
   moveDir: {x: 0, y: 0}
   playerAnimController: {fileID: 0}
 --- !u!114 &7430028480451751737
@@ -354,7 +355,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1715950687343914574
 MonoBehaviour:
