@@ -302,9 +302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 603083eff9b13044499cebb2fd526c2b, type: 3}
-  - {fileID: 21300000, guid: 14d8aec2d5d990248b2610683faca3c0, type: 3}
-  - {fileID: 21300000, guid: 2412d1d8498463f49ae6ebe3a66ffae9, type: 3}
+  - {fileID: 21300000, guid: 1f58bc6799ae64e448d1261fd717c9c9, type: 3}
+  - {fileID: 21300000, guid: 6e450beb0903c044d9d47645a317f251, type: 3}
+  - {fileID: 21300000, guid: 5ad6666ab94ad8f449d9cb1a50d22c5d, type: 3}
+  - {fileID: 21300000, guid: 2a304f654f042b74e9905fd0707483d0, type: 3}
   img: {fileID: 1202070663}
   curIdx: 0
 --- !u!1 &182180747
@@ -791,7 +792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 603083eff9b13044499cebb2fd526c2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f58bc6799ae64e448d1261fd717c9c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
