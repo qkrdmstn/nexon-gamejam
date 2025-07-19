@@ -824,11 +824,6 @@ MonoBehaviour:
   maxHP: 10
   playerObj: {fileID: 0}
   impulseSource: {fileID: 458926959}
-  towershops:
-  - {fileID: 1608710526040274388}
-  - {fileID: 7619076101511466725}
-  - {fileID: 6810801783649913396}
-  - {fileID: 9187589902257324092}
 --- !u!4 &458926958
 Transform:
   m_ObjectHideFlags: 0
@@ -907,6 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489961082}
   - component: {fileID: 489961083}
+  - component: {fileID: 489961084}
   m_Layer: 0
   m_Name: Bg_Tree (2)
   m_TagString: Untagged
@@ -969,7 +965,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e706bef091f767e4db459b4f7d6aad62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -981,6 +977,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &489961084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489961081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709ce0ee57fd1b74f886b0143b026281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: -0.7
+  lowOrder: 1
+  highOrder: 3
 --- !u!1 &521193039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,6 +1279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 844328096}
   - component: {fileID: 844328097}
+  - component: {fileID: 844328098}
   m_Layer: 0
   m_Name: Bg_Tree (1)
   m_TagString: Untagged
@@ -1330,7 +1342,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e706bef091f767e4db459b4f7d6aad62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1342,6 +1354,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &844328098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844328095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709ce0ee57fd1b74f886b0143b026281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: -0.7
+  lowOrder: 1
+  highOrder: 3
 --- !u!1 &850407193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,6 +1897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400992028}
   - component: {fileID: 1400992029}
+  - component: {fileID: 1400992030}
   m_Layer: 0
   m_Name: Bg_Tree
   m_TagString: Untagged
@@ -1932,7 +1960,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e706bef091f767e4db459b4f7d6aad62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1944,6 +1972,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1400992030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400992027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709ce0ee57fd1b74f886b0143b026281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: -0.7
+  lowOrder: 1
+  highOrder: 3
 --- !u!1 &1406029876
 GameObject:
   m_ObjectHideFlags: 0

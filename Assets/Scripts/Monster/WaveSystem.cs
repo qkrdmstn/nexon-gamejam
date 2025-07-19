@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -13,6 +11,10 @@ public class WaveSystem : MonoBehaviour
     private int currentWaveIndex = -1;
     [SerializeField]
     private int waveInterval;
+    [SerializeField]
+    private bool isStage0;
+    [SerializeField]
+    private Tutorial tutorial;
 
     private void Start()
     {
@@ -21,7 +23,13 @@ public class WaveSystem : MonoBehaviour
 
     private IEnumerator WaveCoroutine()
     {
-        while(currentWaveIndex < waves.Length - 1)
+        if (isStage0) //0스테이지 튜토리얼 진입
+        {
+            tutorial.OpenTutorial();
+            yield return new WaitUntil(() => tutorial.IsEnd);
+        }
+
+        while (currentWaveIndex < waves.Length - 1)
         {
             yield return new WaitForSeconds(waveInterval);
             currentWaveIndex++;
@@ -31,12 +39,13 @@ public class WaveSystem : MonoBehaviour
         WaveEnd();
     }
 
-
     //스테이지 클리어
     public void WaveEnd()
     {
         GameManager.instance.StageClear();
     }
+
+
 }
 
 [System.Serializable]
@@ -44,5 +53,5 @@ public struct Wave
 {
     public float spawnTime;
     public int maxMonsterCount;
-    public MonsterType [] monsterSequence;
+    public MonsterType[] monsterSequence;
 }
