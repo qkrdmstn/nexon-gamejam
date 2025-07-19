@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum MonsterDestroyType
 {
@@ -22,6 +23,8 @@ public class MonsterSpawner : MonoBehaviour
     private List<Monster> monsterList; //현재 맵에 존재하는 모든 적의 정보
     [SerializeField]
     private GameObject goldPrefab;
+    [SerializeField]
+    private GameObject potionPrefab;
 
     public List<Monster> MonsterList => monsterList;
     // Start is called before the first frame update
@@ -59,12 +62,16 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (type == MonsterDestroyType.Arrive)
         {
-            GameManager.instance.OnDamage(monster.arrivedDamage);
+            GameManager.instance.OnDamage(1);
         }
         else if (type == MonsterDestroyType.Kill)
         {
             GameObject goldObj = Instantiate(goldPrefab, monster.transform.position, Quaternion.identity);
             goldObj.GetComponent<Gold>().quantity = gold;
+
+            float randomVal = Random.Range(0.0f, 100.0f);
+            if(randomVal < 20.0f)
+                Instantiate(potionPrefab, monster.transform.position, Quaternion.identity);
         }
 
         monsterList.Remove(monster);

@@ -49,7 +49,7 @@ public class BasicBullet : MonoBehaviour
         else if (collision.CompareTag("Player"))
         {
             //플레이어 데미지 입히는 함수
-            collision.GetComponent<Player>().OnDamage(damage);            
+            collision.GetComponent<Player>().OnDamage(1);            
             Die();
         }
     }

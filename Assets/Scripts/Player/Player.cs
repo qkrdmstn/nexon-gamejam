@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.U2D;
 using Cinemachine;
+using Unity.VisualScripting;
 public enum PlayerDamageType
 {
     Monster,
@@ -12,9 +13,6 @@ public enum PlayerDamageType
 
 public class Player : MonoBehaviour
 {
-    [Header("Life Info")]
-    [SerializeField] float curHP = 10;
-    float maxHP = 10;
     [SerializeField] private float hitDuration = 0.6f;
 
     [Header("Move Info")]
@@ -29,12 +27,17 @@ public class Player : MonoBehaviour
     [Header("Parrying Info")]
     public float parryingRadius;
     public float speedMultiplier;
-    
+    public float parryingDuration;
+    public float parryingTimeScale;
+    public float parryingGauge;
+    public float parryingGaugeRecoveryTimer;
+    public float parryingGaugeRecoveryInterval;
+    public float parryingGaugeRecoveryValue;
+
     #region Componets
     public Rigidbody2D rb { get; private set; }
     public Collider2D col { get; private set; }
     public SpriteRenderer spriteRenderer;
-    public CinemachineImpulseSource impulseSource;
     #endregion
 
     #region States
@@ -59,19 +62,24 @@ public class Player : MonoBehaviour
         stateMachine.Initialize(idleState);
     }
 
-    private void Start()
-    {
-        //cameraManager = FindObjectOfType<CameraManager>();
-        impulseSource = GetComponent<CinemachineImpulseSource>();
-    }
-
     private void Update()
     {
         stateMachine.currentState.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            Parrying(parryingRadius);
+        //패링
+        if (Input.GetKeyDown(KeyCode.Space) && parryingGauge >= 100)
+        {
+            StartCoroutine(ParryingCoroutine(parryingRadius));
+            parryingGauge = 0.0f;
+        }
 
+        //패링 게이지 회복
+        parryingGaugeRecoveryTimer -= Time.deltaTime;
+        if(parryingGaugeRecoveryTimer < 0.0f)
+        {
+            parryingGaugeRecoveryTimer = parryingGaugeRecoveryInterval;
+            GetParryingGauge(parryingGaugeRecoveryValue);
+        }
     }
 
     public void SetVelocity(float _xVelocity, float _yVelocity)
@@ -84,11 +92,10 @@ public class Player : MonoBehaviour
         rb.velocity = vel;
     }
 
-    public void OnDamage(float damage)
+    public void OnDamage(int damage = 1)
     {
         //Change Layer & Change Color
-        GameManager.instance.OnDamage(damage);
-        impulseSource.GenerateImpulse();
+        GameManager.instance.OnDamage(1);
         ChangePlayerLayer(7);
         StartCoroutine(DamagedProcess(hitDuration));
     }
@@ -110,10 +117,6 @@ public class Player : MonoBehaviour
             spriteRenderer.color = color;
 
             yield return new WaitForSeconds(duration / 4.0f);
-
-            //animController.SetMaterialColor(new Color(1, 1, 1, 0.4f));
-
-            //animController.SetMaterialColor(new Color(1, 1, 1, 1f));
         }
         ChangePlayerLayer(6);
         isDamaged = false;
@@ -124,8 +127,9 @@ public class Player : MonoBehaviour
 
     }
 
-    private void Parrying(float impactRadius)
+    private IEnumerator ParryingCoroutine(float impactRadius)
     {
+        Time.timeScale = parryingTimeScale;
         Collider2D[] inRangeTarget = Physics2D.OverlapCircleAll(this.transform.position, impactRadius);
         for (int i = 0; i < inRangeTarget.Length; i++)
         {
@@ -137,7 +141,9 @@ public class Player : MonoBehaviour
                 bullet.ParryingBullet(this.transform.position, speedMultiplier);
             }
         }
-        impulseSource.GenerateImpulse();
+        yield return new WaitForSeconds(parryingDuration);
+        Time.timeScale = 1.0f;
+        
     }
 
     public void SetIdleStatePlayer()
@@ -151,6 +157,10 @@ public class Player : MonoBehaviour
         gameObject.layer = layer;
     }
 
+    public void GetParryingGauge(float val)
+    {
+        parryingGauge += val;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

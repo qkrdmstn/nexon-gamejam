@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int gold;
-    public float curHP;
-    public float maxHP;
+    public int curHP;
+    public int maxHP;
+
+    public CinemachineImpulseSource impulseSource;
     [SerializeField] List<TowerShopIcon> towershops;
     public event Action OnGolded; //골드 획득했을 때 콜백 이벤트
     public event Action OnDamaged; //HP 닳았을 때 콜백 이벤트
-
     public static GameManager instance;
     void Awake()
     {
@@ -23,6 +25,17 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject); //새로만든거 삭제
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Start()
+    {
+        impulseSource = GetComponent<CinemachineImpulseSource>();
+        SetUp();
+    }
+
+    public void SetUp()
+    {
+        curHP = maxHP;
     }
 
     // Update is called once per frame
@@ -45,9 +58,22 @@ public class GameManager : MonoBehaviour
         OnGolded.Invoke();
     }
 
-    public void OnDamage(float damage)
+    public void RecoverHP(int num = 1)
+    {
+        curHP = Mathf.Max(maxHP, curHP + num);
+    }
+
+    public void OnDamage(int damage = 1)
     {
         curHP -= damage;
+        impulseSource.GenerateImpulse();
         OnDamaged.Invoke();
+        if (curHP <= 0)
+            GameOver();
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("GameOVer");
     }
 }

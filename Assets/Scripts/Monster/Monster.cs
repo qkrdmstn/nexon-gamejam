@@ -23,12 +23,10 @@ public class Monster : MonoBehaviour
     private float moveSpeed;
     private float initMoveSpeed;
 
-    //데미지 관련 변수
-    public float arrivedDamage;
-
     //처치 시 획득 골드
     [SerializeField]
-    int gold = 10;
+    private int gold = 10;
+    private float parrying = 10.0f;
     
     //기타 컴포넌트
     private MonsterSpawner monsterSpawner;
@@ -65,9 +63,6 @@ public class Monster : MonoBehaviour
         NextMoveTo();
         while (true)
         {
-            //몬스터 회전
-            //transform.Rotate(Vector3.forward * 10);
-
             //목적지에 도착
             if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.05f * moveSpeed)
                 NextMoveTo();

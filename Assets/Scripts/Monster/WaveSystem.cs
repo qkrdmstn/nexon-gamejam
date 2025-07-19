@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -10,27 +11,31 @@ public class WaveSystem : MonoBehaviour
     private MonsterSpawner monsterSpawner;
     [SerializeField]
     private int currentWaveIndex = -1;
+    [SerializeField]
+    private int waveInterval;
 
-    public void StartWave()
+    private void Start()
     {
-        if(monsterSpawner.MonsterList.Count == 0 && currentWaveIndex < waves.Length - 1)
+        StartCoroutine(WaveCoroutine());
+    }
+
+    private IEnumerator WaveCoroutine()
+    {
+        while(currentWaveIndex < waves.Length - 1)
         {
-            //인덱스 시작이 -1이므로, 먼저 인덱스 증가
+            yield return new WaitForSeconds(waveInterval);
             currentWaveIndex++;
             monsterSpawner.StartWave(waves[currentWaveIndex]);
+            yield return new WaitUntil(() => monsterSpawner.MonsterList.Count == 0);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        WaveEnd();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //스테이지 클리어
+    public void WaveEnd()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            StartWave();
+        Debug.Log("Stage Clear");
     }
 }
 

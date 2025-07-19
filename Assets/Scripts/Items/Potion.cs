@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gold : MonoBehaviour
+public class Potion : MonoBehaviour
 {
     public int quantity;
 
@@ -10,7 +10,7 @@ public class Gold : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            GameManager.instance.GetGold(quantity);
+            GameManager.instance.RecoverHP(quantity);
             Destroy(gameObject);
         }
     }
