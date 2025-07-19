@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e37c2aed74105e47b525af8954c6fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 30
+  gold: 50
   curHP: 10
   maxHP: 10
   impulseSource: {fileID: 458926959}
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitDuration: 1
-  moveSpeed: 5.65
+  moveSpeed: 3
   dashSpeed: 13
   dashDuration: 0.58
   dashExpCoefficient: -3.5
@@ -3695,10 +3695,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefabs:
-  - {fileID: 2333676836068259348, guid: 2dd5284c54cac1a49b890cd66abb9b6a, type: 3}
-  - {fileID: 8038391462898589332, guid: e02160c73a2b701468fcbb76e3342b0b, type: 3}
+  - {fileID: 8500243562697560140, guid: 9aa131035a2b4be4c9fd239d2192dc03, type: 3}
+  - {fileID: 7548904224041526503, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
   - {fileID: 8038391462898589332, guid: e888cbb82f6f2aa478eca241a9aea535, type: 3}
-  - {fileID: 2333676836068259348, guid: 386a95ce9c20225468758bac4e38bbbd, type: 3}
+  - {fileID: 7548904224041526503, guid: cd0f6ecc83eb86d4dbcc0cd9ba508010, type: 3}
 --- !u!4 &1836846688
 Transform:
   m_ObjectHideFlags: 0
