@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.88749933, a: 1}
+  m_Color: {r: 0, g: 0.47807884, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2333,63 +2333,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 314489183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &980921708
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7548904224041526503, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_Name
-      value: ChaseTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.4934602
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.303057
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.038177915
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
 --- !u!1 &1003160621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,7 +2399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.035009384, a: 1}
+  m_Color: {r: 1, g: 0.711505, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3757,9 +3700,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefabs:
-  - {fileID: 8500243562697560140, guid: 9aa131035a2b4be4c9fd239d2192dc03, type: 3}
+  - {fileID: 2333676836068259348, guid: 2dd5284c54cac1a49b890cd66abb9b6a, type: 3}
   - {fileID: 8038391462898589332, guid: e02160c73a2b701468fcbb76e3342b0b, type: 3}
-  - {fileID: 7548904224041526503, guid: cd0f6ecc83eb86d4dbcc0cd9ba508010, type: 3}
+  - {fileID: 8038391462898589332, guid: e888cbb82f6f2aa478eca241a9aea535, type: 3}
   - {fileID: 2333676836068259348, guid: 386a95ce9c20225468758bac4e38bbbd, type: 3}
 --- !u!4 &1836846688
 Transform:
@@ -4233,4 +4176,3 @@ SceneRoots:
   - {fileID: 1931478160}
   - {fileID: 527898851}
   - {fileID: 473795033}
-  - {fileID: 980921708}

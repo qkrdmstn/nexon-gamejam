@@ -23,7 +23,6 @@ public class Tower135 : TowerBase
 
     private IEnumerator Pattern135()
     {
-        Debug.Log("135 Pattern");
         float angle = 45f;
 
         for (int i = 0; i < bulletCnt; i++)
