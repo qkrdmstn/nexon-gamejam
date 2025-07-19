@@ -494,7 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 50
   bulletPrefab: {fileID: 3460312307952903305, guid: dd27aa87ea2f2bc4f97167b1944c61eb, type: 3}
-  range: 6
+  range: 5
   rangeVisual: {fileID: 4645251015000725178}
   patternInterval: 2
   bulletCnt: 20
