@@ -186,7 +186,7 @@ MonoBehaviour:
   wayPointCnt: 0
   currentIndex: 0
   moveDir: {x: 0, y: 0, z: 0}
-  moveSpeed: 2
+  moveSpeed: 1.8
   gold: 7
 --- !u!114 &5183200417876546056
 MonoBehaviour:

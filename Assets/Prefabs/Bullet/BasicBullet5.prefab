@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   originalDamage: 2
-  speed: 5
+  speed: 1.75
   lifeTime: 10
   originalScale: 0.1
   parryingDamage: 10
