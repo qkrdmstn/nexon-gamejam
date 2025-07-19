@@ -14,7 +14,6 @@ public class TestTower : TowerBase
 
     private void BasicPattern()
     {
-        Debug.Log("Basic Pattern");
         float anglePlus = 360f / bulletCnt;
         float angle = 0f;
 

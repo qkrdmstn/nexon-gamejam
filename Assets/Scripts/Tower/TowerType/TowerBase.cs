@@ -27,7 +27,6 @@ public abstract class TowerBase : MonoBehaviour
         {
             if (isReady)
                 StartCoroutine(ShootTask());
-            Debug.Log("MonsterDetected!");
         }
     }
 

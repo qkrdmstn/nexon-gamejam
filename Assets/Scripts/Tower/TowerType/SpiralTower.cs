@@ -23,7 +23,6 @@ public class SpiralTower : TowerBase
 
     private IEnumerator SpiralPattern()
     {
-        Debug.Log("Spiral Pattern");
         float angle = 0f;
 
         for (int i = 0; i < bulletCnt; i++)
