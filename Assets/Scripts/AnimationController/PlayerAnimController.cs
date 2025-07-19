@@ -1,29 +1,36 @@
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 //애니메이션 Enum
 public enum PlayerAnimState
 {
-    Run, Hit, Die
+    Idle, Run, Hit, Dead //front idle, run hit dead, back idle, run, hit 순
 }
 
-public enum PlayerMoveDir
+public enum PlayerXDir
+{
+    Left, Right
+}
+
+public enum PlayerYDir
 {
     Front, Back
 }
 
 public class PlayerAnimController : MonoBehaviour
 {
-    public SkeletonAnimation skeletonAnimation;
+    public SkeletonAnimation skeletonAnimationFront;
+    public SkeletonAnimation skeletonAnimationBack;
     public AnimationReferenceAsset[] AnimClip;
 
     //현재 애니메이션
     private MonsterAnimState _AnimState;
     //현재 애니메이션
     private string currentAnimation;
-    private void AsyncAnimation(AnimationReferenceAsset animClip, bool loop, float timeScale)
+    private void AsyncAnimation(SkeletonAnimation skeletonAnimation, AnimationReferenceAsset animClip, bool loop, float timeScale)
     {
         if (animClip.name.Equals(currentAnimation)) return;
 
@@ -34,22 +41,42 @@ public class PlayerAnimController : MonoBehaviour
         currentAnimation = animClip.name;
     }
 
-    public void SetCurrentAnimation(MonsterAnimState state)
+    public void SetCurrentAnimation(PlayerXDir xDir, PlayerYDir yDir, PlayerAnimState state)
     {
-        switch (state)
+        Debug.Log(xDir + " " + yDir + " " + state);
+        if(yDir == PlayerYDir.Front)
         {
-            case MonsterAnimState.Run:
-                AsyncAnimation(AnimClip[(int)MonsterAnimState.Run], true, 1f);
-                break;
-            case MonsterAnimState.Dead:
-                Debug.Log("DeadAnim");
-                AsyncAnimation(AnimClip[(int)MonsterAnimState.Dead], true, 1f);
-                break;
+            skeletonAnimationFront.gameObject.SetActive(true);
+            skeletonAnimationBack.gameObject.SetActive(false);
+            if(xDir == PlayerXDir.Left)
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            else
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+
+            if (state == PlayerAnimState.Idle) AsyncAnimation(skeletonAnimationFront, AnimClip[0], true, 1f);
+            else if (state == PlayerAnimState.Run) AsyncAnimation(skeletonAnimationFront, AnimClip[1], true, 1f);
+            else if (state == PlayerAnimState.Hit) AsyncAnimation(skeletonAnimationFront, AnimClip[2], false, 1f);
+            else if (state == PlayerAnimState.Dead) AsyncAnimation(skeletonAnimationFront, AnimClip[3], false, 1f);
+            
+        }
+        else if(yDir == PlayerYDir.Back)
+        {
+            skeletonAnimationBack.gameObject.SetActive(true);
+            skeletonAnimationFront.gameObject.SetActive(false);
+            if (xDir == PlayerXDir.Left)
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            else
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+            if (state == PlayerAnimState.Idle) AsyncAnimation(skeletonAnimationBack, AnimClip[4], true, 1f);
+            else if (state == PlayerAnimState.Run) AsyncAnimation(skeletonAnimationBack, AnimClip[5], true, 1f);
+            else if (state == PlayerAnimState.Hit) AsyncAnimation(skeletonAnimationBack, AnimClip[6], false, 1f);
         }
     }
 
     public void SetMaterialColor(Color color)
     {
-        skeletonAnimation.skeleton.SetColor(color);
+        skeletonAnimationFront.skeleton.SetColor(color);
+        skeletonAnimationBack.skeleton.SetColor(color);
     }
 }

@@ -37,7 +37,7 @@ public class MonsterAnimController : MonoBehaviour
                 AsyncAnimation(AnimClip[(int)MonsterAnimState.Run], true, 1f);
                 break;
             case MonsterAnimState.Dead:
-                AsyncAnimation(AnimClip[(int)MonsterAnimState.Dead], true, 1f);
+                AsyncAnimation(AnimClip[(int)MonsterAnimState.Dead], false, 1f);
                 break;
         }
     }

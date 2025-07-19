@@ -9,7 +9,7 @@ public enum SceneType
     Main,
     CutScene0,
     Stage0, Stage1, Stage2,
-    CurScene1
+    CutScene1
 }
 
 public class GameManager : MonoBehaviour

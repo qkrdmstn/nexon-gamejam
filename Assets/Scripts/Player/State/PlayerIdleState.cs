@@ -24,5 +24,9 @@ public class PlayerIdleState : PlayerState
 
         if (xInput != 0 || yInput != 0)
             stateMachine.ChangeState(player.moveState);
+
+        if (player.isParrying) return;
+        player.playerAnimController.SetCurrentAnimation(PlayerXDir.Left, PlayerYDir.Front, PlayerAnimState.Idle);
+
     }
 }

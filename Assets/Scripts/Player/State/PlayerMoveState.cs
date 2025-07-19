@@ -24,13 +24,6 @@ public class PlayerMoveState : PlayerState
 
     public override void Update()
     {
-        //Change State
-        //if (Input.GetKeyDown(KeyCode.Mouse1))
-        //{
-        //    stateMachine.ChangeState(player.dashState);
-        //    return;
-        //}
-
         if (xInput == 0 && yInput == 0)
         {
             stateMachine.ChangeState(player.idleState);
@@ -42,9 +35,17 @@ public class PlayerMoveState : PlayerState
         //Move
         Vector2 dir = new Vector2(xInput, yInput);
         dir.Normalize();
+        player.moveDir = dir;
 
         moveSpeed = player.moveSpeed;
         Vector2 move = dir * moveSpeed;
         player.SetVelocity(move.x, move.y);
+
+        if (player.isParrying) return;
+        PlayerXDir xDir = PlayerXDir.Left;
+        PlayerYDir yDir = PlayerYDir.Front;
+        if (player.moveDir.x > 0) xDir = PlayerXDir.Right;
+        if (player.moveDir.y > 0) yDir = PlayerYDir.Back;
+        player.playerAnimController.SetCurrentAnimation(xDir, yDir, PlayerAnimState.Run);
     }
 }
