@@ -824,11 +824,6 @@ MonoBehaviour:
   maxHP: 10
   playerObj: {fileID: 0}
   impulseSource: {fileID: 458926959}
-  towershops:
-  - {fileID: 1608710526040274388}
-  - {fileID: 7619076101511466725}
-  - {fileID: 6810801783649913396}
-  - {fileID: 9187589902257324092}
 --- !u!4 &458926958
 Transform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Clear
+  m_text: Game Over
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

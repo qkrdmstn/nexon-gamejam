@@ -34,7 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8932793141837277884}
+  - {fileID: 5912574235806769146}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1584179024189484290
@@ -86,10 +86,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa6da0cc531f764db6017422453d277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonAnimation: {fileID: 7258572228234899462}
+  skeletonAnimation: {fileID: 2915565624600538724}
   AnimClip:
-  - {fileID: 11400000, guid: a84f4f68e07a86c41806347c740abaa9, type: 2}
-  - {fileID: 11400000, guid: 270f3f12b0dcfea46a0966d422fdd50e, type: 2}
+  - {fileID: 11400000, guid: 47319578fc6a05247b5fbff753aaea86, type: 2}
+  - {fileID: 11400000, guid: 18f0ba4774b8ede4cb54e9b2cb8a1b0f, type: 2}
 --- !u!50 &8167392567855188942
 Rigidbody2D:
   serializedVersion: 4
@@ -149,10 +149,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.123758495, y: 0.627043}
-  m_Size: {x: 1.0134364, y: 1.5128703}
+  m_Offset: {x: -0.23110223, y: 0.7630118}
+  m_Size: {x: 0.5697484, y: 0.75430655}
   m_Direction: 0
---- !u!1 &8548920603417947680
+--- !u!1 &6608769133462863053
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,10 +160,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8932793141837277884}
-  - component: {fileID: 4568287778713675749}
-  - component: {fileID: 3390618133726473773}
-  - component: {fileID: 7258572228234899462}
+  - component: {fileID: 5912574235806769146}
+  - component: {fileID: 1888058678878405634}
+  - component: {fileID: 5395697632282182785}
+  - component: {fileID: 2915565624600538724}
   m_Layer: 0
   m_Name: Anim
   m_TagString: Untagged
@@ -171,36 +171,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8932793141837277884
+--- !u!4 &5912574235806769146
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8548920603417947680}
+  m_GameObject: {fileID: 6608769133462863053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1500001, y: 0.45000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3938229183360713177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4568287778713675749
+--- !u!33 &1888058678878405634
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8548920603417947680}
+  m_GameObject: {fileID: 6608769133462863053}
   m_Mesh: {fileID: 0}
---- !u!23 &3390618133726473773
+--- !u!23 &5395697632282182785
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8548920603417947680}
+  m_GameObject: {fileID: 6608769133462863053}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -214,7 +214,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a473d3c07aa78f44be87cfd7583294d, type: 2}
+  - {fileID: 2100000, guid: a95fa573d576e424fa988b679507f1b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,19 +236,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7258572228234899462
+--- !u!114 &2915565624600538724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8548920603417947680}
+  m_GameObject: {fileID: 6608769133462863053}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 942dc6a800515a7409dc0967903f95e6, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: d33874a1c451c444b8e9d6ed083a3bd8, type: 2}
   initialSkinName: 
   fixPrefabOverrideViaMeshFilter: 2
   initialFlipX: 0
@@ -276,6 +276,6 @@ MonoBehaviour:
   physicsMovementRelativeTo: {fileID: 0}
   updateTiming: 1
   unscaledTime: 0
-  _animationName: Die
+  _animationName: 
   loop: 1
   timeScale: 1

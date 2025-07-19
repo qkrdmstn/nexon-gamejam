@@ -21,6 +21,6 @@ public class GoldUI : MonoBehaviour
 
     private void GoldUIUpdate()
     {
-        txtUI.text = "gold: " + GameManager.instance.gold.ToString();
+        txtUI.text = GameManager.instance.gold.ToString() + "$";
     }
 }

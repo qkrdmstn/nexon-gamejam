@@ -84,17 +84,20 @@ public class GameManager : MonoBehaviour
         impulseSource.GenerateImpulse();
         OnHPChanged.Invoke();
         if (curHP <= 0)
-            StageOver();
+            StartCoroutine(StageOver());
     }
 
-
-    public void StageOver()
+    private IEnumerator StageOver()
     {
+        playerObj.GetComponent<Player>().Dead();
+        yield return new WaitForSeconds(0.9f);
         Time.timeScale = 0.0f;
         FindObjectOfType<StageOverUI>().SetActiveUI();
     }
+
     public void StageClear()
     {
+        Time.timeScale = 0.0f;
         FindObjectOfType<StageClearUI>().SetActiveUI();
     }
 
@@ -117,6 +120,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(SceneType type)
     {
+        curScene = type;
         SceneManager.LoadScene(type.ToString());
         SetUp();
     }
