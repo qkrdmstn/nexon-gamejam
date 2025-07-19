@@ -12,12 +12,16 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private int waveInterval;
     [SerializeField]
+    private int uiInterval;
+    public WaveUI waveUI;
+    [SerializeField]
     private bool isStage0;
     [SerializeField]
     private Tutorial tutorial;
 
     private void Start()
     {
+        waveUI = FindObjectOfType<WaveUI>();
         StartCoroutine(WaveCoroutine());
     }
 
@@ -31,10 +35,16 @@ public class WaveSystem : MonoBehaviour
 
         while (currentWaveIndex < waves.Length - 1)
         {
-            yield return new WaitForSeconds(waveInterval);
+            waveUI.UpdateUI(currentWaveIndex + 1);
+            waveUI.SetActiveUI(true);
+            yield return new WaitForSeconds(uiInterval);
+            waveUI.SetActiveUI(false);
+
+            yield return new WaitForSeconds(waveInterval - uiInterval);
             currentWaveIndex++;
             monsterSpawner.StartWave(waves[currentWaveIndex]);
             yield return new WaitUntil(() => monsterSpawner.MonsterList.Count == 0);
+
         }
         WaveEnd();
     }
