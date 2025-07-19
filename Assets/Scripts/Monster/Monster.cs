@@ -10,6 +10,7 @@ public enum MonsterType
 
 public class Monster : MonoBehaviour
 {
+    //이동 관련 변수
     [SerializeField]
     private Transform[] wayPoints;
     [SerializeField]
@@ -20,17 +21,24 @@ public class Monster : MonoBehaviour
     private Vector3 moveDir;
     [SerializeField]
     private float moveSpeed;
+    private float initMoveSpeed;
+
+    //데미지 관련 변수
     public float arrivedDamage;
 
-    private float initMoveSpeed;
-    private MonsterSpawner monsterSpawner;
+    //처치 시 획득 골드
     [SerializeField]
     int gold = 10;
+    
+    //기타 컴포넌트
+    private MonsterSpawner monsterSpawner;
+    private MonsterAnimController monsterAnimController;
 
     //몬스터 way point 초기 설정
     public void SetUp(Transform[] wayPoints)
     {
         monsterSpawner = FindAnyObjectByType<MonsterSpawner>();
+        monsterAnimController = gameObject.GetComponentInChildren<MonsterAnimController>();
 
         wayPointCnt = wayPoints.Length;
         this.wayPoints = new Transform[wayPointCnt];
@@ -76,6 +84,7 @@ public class Monster : MonoBehaviour
             currentIndex++;
             Vector3 direction = (wayPoints[currentIndex].position - transform.position).normalized;
             moveDir = direction;
+            monsterAnimController.SetCurrentAnimation(MonsterAnimState.Run);
         }
         else
             OnDead(MonsterDestroyType.Arrive);
@@ -83,6 +92,7 @@ public class Monster : MonoBehaviour
 
     public void OnDead(MonsterDestroyType type)
     {
+        monsterAnimController.SetCurrentAnimation(MonsterAnimState.Dead);
         monsterSpawner.DestoryMonster(type, this, gold);
     }
 
@@ -91,6 +101,7 @@ public class Monster : MonoBehaviour
         moveSpeed = initMoveSpeed;
         Debug.Log("이동속도 원상복구");
     }
+
     public void DecreaseMoveSpeed(int decreasePercent) //이동속도를 decreasePercent% 감소 
     {
         moveSpeed *= 1 - decreasePercent * 0.01f;
