@@ -188,7 +188,7 @@ MonoBehaviour:
   range: 4
   rangeVisual: {fileID: 3731882990951692512}
   patternInterval: -1
-  slowRate: 40
+  slowRate: 50
 --- !u!58 &1420139381838463824
 CircleCollider2D:
   m_ObjectHideFlags: 0

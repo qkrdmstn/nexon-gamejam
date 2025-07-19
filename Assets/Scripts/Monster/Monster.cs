@@ -3,14 +3,15 @@ using UnityEngine;
 
 public enum MonsterType
 {
-    Monster1,
-    Monster2,
-    Monster3,
+    Goblin,
+    Slime,
+    Zombie,
+    Skeleton,
 }
 
 public class Monster : MonoBehaviour
 {
-    //ÀÌµ¿ °ü·Ã º¯¼ö
+    //ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
     private Transform[] wayPoints;
     [SerializeField]
@@ -23,16 +24,16 @@ public class Monster : MonoBehaviour
     private float moveSpeed;
     private float initMoveSpeed;
 
-    //Ã³Ä¡ ½Ã È¹µæ °ñµå
+    //Ã³Ä¡ ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½
     [SerializeField]
     private int gold = 10;
     private float parrying = 10.0f;
 
-    //±âÅ¸ ÄÄÆ÷³ÍÆ®
+    //ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     private MonsterSpawner monsterSpawner;
     private MonsterAnimController monsterAnimController;
 
-    //¸ó½ºÅÍ way point ÃÊ±â ¼³Á¤
+    //ï¿½ï¿½ï¿½ï¿½ way point ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetUp(Transform[] wayPoints)
     {
         monsterSpawner = FindAnyObjectByType<MonsterSpawner>();
@@ -59,11 +60,11 @@ public class Monster : MonoBehaviour
 
     private IEnumerator OnMove()
     {
-        //´ÙÀ½ ³ëµå·Î ÀÌµ¿
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         NextMoveTo();
         while (true)
         {
-            //¸ñÀûÁö¿¡ µµÂø
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.05f * moveSpeed)
                 NextMoveTo();
             yield return null;
@@ -72,7 +73,7 @@ public class Monster : MonoBehaviour
 
     private void NextMoveTo()
     {
-        //¸¶Áö¸· ³ëµå°¡ ¾Æ´Ï¶ó¸é, À§Ä¡ º¸Á¤ ÈÄ ¹æÇâ ¼öÁ¤
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å°¡ ï¿½Æ´Ï¶ï¿½ï¿½, ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (currentIndex < wayPointCnt - 1)
         {
             transform.position = wayPoints[currentIndex].position;
@@ -96,12 +97,12 @@ public class Monster : MonoBehaviour
         monsterSpawner.DestoryMonster(type, this, gold);
     }
 
-    public void RestoreMoveSpeed() //ÀÌµ¿¼Óµµ ¿ø»ó º¹±¸
+    public void RestoreMoveSpeed() //ï¿½Ìµï¿½ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         moveSpeed = initMoveSpeed;
     }
 
-    public void DecreaseMoveSpeed(int decreasePercent) //ÀÌµ¿¼Óµµ¸¦ decreasePercent%¸¸Å­ °¨¼Ò 
+    public void DecreaseMoveSpeed(int decreasePercent) //ï¿½Ìµï¿½ï¿½Óµï¿½ï¿½ï¿½ decreasePercent%ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ 
     {
         moveSpeed = initMoveSpeed * (1 - decreasePercent * 0.01f);
     }

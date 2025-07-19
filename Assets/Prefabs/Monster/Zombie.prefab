@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8167392567855188942}
   - component: {fileID: 4693277041894437101}
   m_Layer: 0
-  m_Name: Monster3
+  m_Name: Zombie
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,9 +59,8 @@ MonoBehaviour:
   wayPointCnt: 0
   currentIndex: 0
   moveDir: {x: 0, y: 0, z: 0}
-  moveSpeed: 3
-  arrivedDamage: 2
-  gold: 10
+  moveSpeed: 1.2
+  gold: 20
 --- !u!114 &8555612724103130505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2635b8d0b41744f4e9631dc54e56369c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
+  maxHP: 100
 --- !u!114 &5779994253658681482
 MonoBehaviour:
   m_ObjectHideFlags: 0

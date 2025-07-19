@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5458676258328551474
+--- !u!1 &3171753624799050612
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3345834955911451241}
-  - component: {fileID: 1964972705945339561}
-  - component: {fileID: 4312889877189384182}
-  - component: {fileID: 2439287408699088101}
+  - component: {fileID: 4378074890153482680}
+  - component: {fileID: 3244241467160460643}
+  - component: {fileID: 6593592169325813237}
+  - component: {fileID: 4977357108245211599}
   m_Layer: 0
   m_Name: Anim
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3345834955911451241
+--- !u!4 &4378074890153482680
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458676258328551474}
+  m_GameObject: {fileID: 3171753624799050612}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -34,21 +34,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3938229183360713177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1964972705945339561
+--- !u!33 &3244241467160460643
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458676258328551474}
+  m_GameObject: {fileID: 3171753624799050612}
   m_Mesh: {fileID: 0}
---- !u!23 &4312889877189384182
+--- !u!23 &6593592169325813237
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458676258328551474}
+  m_GameObject: {fileID: 3171753624799050612}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,13 +84,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2439287408699088101
+--- !u!114 &4977357108245211599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458676258328551474}
+  m_GameObject: {fileID: 3171753624799050612}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
@@ -137,12 +137,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3938229183360713177}
   - component: {fileID: 1584179024189484290}
-  - component: {fileID: 7907262335227152193}
-  - component: {fileID: 5929925976379770384}
+  - component: {fileID: 5183200417876546056}
+  - component: {fileID: 8454125021439213669}
   - component: {fileID: 7887468803875751960}
-  - component: {fileID: -4048484977269152877}
+  - component: {fileID: 9148286103489386252}
   m_Layer: 0
-  m_Name: Monster1
+  m_Name: Slime
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3345834955911451241}
+  - {fileID: 4378074890153482680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1584179024189484290
@@ -186,9 +186,9 @@ MonoBehaviour:
   wayPointCnt: 0
   currentIndex: 0
   moveDir: {x: 0, y: 0, z: 0}
-  moveSpeed: 1.5
-  gold: 5
---- !u!114 &7907262335227152193
+  moveSpeed: 2.2
+  gold: 15
+--- !u!114 &5183200417876546056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2635b8d0b41744f4e9631dc54e56369c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
---- !u!114 &5929925976379770384
+  maxHP: 50
+--- !u!114 &8454125021439213669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa6da0cc531f764db6017422453d277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonAnimation: {fileID: 2439287408699088101}
+  skeletonAnimation: {fileID: 4977357108245211599}
   AnimClip:
   - {fileID: 11400000, guid: a84f4f68e07a86c41806347c740abaa9, type: 2}
   - {fileID: 11400000, guid: 270f3f12b0dcfea46a0966d422fdd50e, type: 2}
@@ -249,10 +249,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.123758495, y: 0.627043}
-  m_Size: {x: 1.0134364, y: 1.5128703}
+  m_Offset: {x: -0.16501135, y: 0.6600454}
+  m_Size: {x: 1.1126043, y: 1.5086312}
   m_Direction: 0
---- !u!50 &-4048484977269152877
+--- !u!50 &9148286103489386252
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

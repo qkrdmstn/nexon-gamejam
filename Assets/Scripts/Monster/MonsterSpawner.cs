@@ -19,8 +19,8 @@ public class MonsterSpawner : MonoBehaviour
     private Transform canvasTransform;
     [SerializeField]
     private Transform[] wayPoints;
-    private Wave currentWave; //ÇöÀç ¿þÀÌºê Á¤º¸
-    private List<Monster> monsterList; //ÇöÀç ¸Ê¿¡ Á¸ÀçÇÏ´Â ¸ðµç ÀûÀÇ Á¤º¸
+    private Wave currentWave; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
+    private List<Monster> monsterList; //ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
     private GameObject goldPrefab;
     [SerializeField]
@@ -41,21 +41,21 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator SpawnMonster()
     {
-        //ÇöÀç ¿þÀÌºê¿¡¼­ »ý¼ºÇÑ Àû ¼ýÀÚ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºê¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         int spawnMonsterCount = 0;
         while (spawnMonsterCount < currentWave.maxMonsterCount)
         {
             int enemyIdx = (int)currentWave.monsterSequence[spawnMonsterCount];
-            GameObject clone = Instantiate(monsterPrefabs[enemyIdx]); //Àû ¿ÀºêÁ§Æ® »ý¼º
+            GameObject clone = Instantiate(monsterPrefabs[enemyIdx]); //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             Monster monster = clone.GetComponent<Monster>();
 
-            monster.SetUp(wayPoints); //waypoint Á¤º¸ ¼³Á¤
+            monster.SetUp(wayPoints); //waypoint ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             monsterList.Add(monster);
 
             SpawnerMonsterHPSlider(clone);
 
             spawnMonsterCount++;
-            yield return new WaitForSeconds(currentWave.spawnTime); //spawntime ½Ã°£ µ¿¾È ´ë±â
+            yield return new WaitForSeconds(currentWave.spawnTime); //spawntime ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
     }
     public void DestoryMonster(MonsterDestroyType type, Monster monster, int gold)
@@ -70,7 +70,7 @@ public class MonsterSpawner : MonoBehaviour
             goldObj.GetComponent<Gold>().quantity = gold;
 
             float randomVal = Random.Range(0.0f, 100.0f);
-            if(randomVal < 20.0f)
+            if(randomVal < 40.0f)
                 Instantiate(potionPrefab, monster.transform.position, Quaternion.identity);
         }
 
@@ -80,14 +80,14 @@ public class MonsterSpawner : MonoBehaviour
 
     private void SpawnerMonsterHPSlider(GameObject monster)
     {
-        //Ã¼·Â UI »ý¼º
+        //Ã¼ï¿½ï¿½ UI ï¿½ï¿½ï¿½ï¿½
         GameObject sliderClone = Instantiate(monsterHPSliderPrefab);
 
-        //°èÃþ±¸Á¶ ¼³Á¤
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         sliderClone.transform.SetParent(canvasTransform);
         sliderClone.transform.localScale = Vector3.one;
 
-        //Ã¼·Â ¸ó½ºÅÍ ¼³Á¤
+        //Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         sliderClone.GetComponent<SliderPositionAutoSetter>().SetUp(monster.GetComponent<Monster>());
         sliderClone.GetComponent<MonsterHPViewer>().SetUp(monster.GetComponent<MonsterHP>());
     }
