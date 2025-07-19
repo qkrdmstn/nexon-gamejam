@@ -2,12 +2,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] TowerType type;
     [SerializeField] Color redFadeColor;
     [SerializeField] Color greenFadeColor;
     [SerializeField] GameObject lockUI;
+    [SerializeField] GameObject explainUI;
     Color initColor;
     Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
@@ -15,6 +16,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     Image image;
     bool canInstall;
     bool canPurchase;
+    bool isDragging;
     RectTransform rectTransform;
 
     static float SLOW_SCALE = 0.05f;
@@ -27,12 +29,14 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         initScale = transform.localScale.x;
         canInstall = false;
         canPurchase = false;
+        isDragging = false;
     }
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         lockUI.SetActive(!canPurchase);
+        explainUI.SetActive(false);
         CheckPurchase();
         GameManager.instance.OnGolded += CheckPurchase;
     }
@@ -41,14 +45,27 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         GameManager.instance.OnGolded -= CheckPurchase;
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!isDragging)
+            explainUI.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        explainUI.SetActive(false);
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!canPurchase) return;
         //Debug.Log("UI 클릭 시작");
         SetScale(1);
+        explainUI.SetActive(false);
         image.color = redFadeColor;
         canInstall = false;
         Time.timeScale = SLOW_SCALE;
+        isDragging = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -63,6 +80,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             towerObj.transform.position = installPos;
         }
 
+        isDragging = false;
         transform.position = initPos;
         SetScale(initScale);
         image.color = initColor;
