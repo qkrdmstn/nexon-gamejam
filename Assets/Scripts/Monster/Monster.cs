@@ -27,7 +27,7 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private int gold = 10;
     private float parrying = 10.0f;
-    
+
     //기타 컴포넌트
     private MonsterSpawner monsterSpawner;
     private MonsterAnimController monsterAnimController;
@@ -99,12 +99,10 @@ public class Monster : MonoBehaviour
     public void RestoreMoveSpeed() //이동속도 원상 복구
     {
         moveSpeed = initMoveSpeed;
-        Debug.Log("이동속도 원상복구");
     }
 
-    public void DecreaseMoveSpeed(int decreasePercent) //이동속도를 decreasePercent% 감소 
+    public void DecreaseMoveSpeed(int decreasePercent) //이동속도를 decreasePercent%만큼 감소 
     {
-        moveSpeed *= 1 - decreasePercent * 0.01f;
-        Debug.Log("이동속도 감소");
+        moveSpeed = initMoveSpeed * (1 - decreasePercent * 0.01f);
     }
 }

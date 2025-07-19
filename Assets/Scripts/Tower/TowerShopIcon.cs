@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [SerializeField] TowerType type;
+    [SerializeField] Color redFadeColor;
     [SerializeField] Color greenFadeColor;
     [SerializeField] GameObject lockUI;
     Color initColor;
-    Color originFadeColor;
     Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
     float initScale;
@@ -23,7 +23,6 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         image = GetComponent<Image>();
         initColor = image.color;
-        originFadeColor = new Color(initColor.r, initColor.g, initColor.b, 0.5f);
         initPos = transform.position;
         initScale = transform.localScale.x;
         canInstall = false;
@@ -42,7 +41,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (!canPurchase) return;
         //Debug.Log("UI 클릭 시작");
         SetScale(1);
-        image.color = originFadeColor;
+        image.color = redFadeColor;
         canInstall = false;
         Time.timeScale = SLOW_SCALE;
     }
@@ -90,7 +89,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
                 if (hit[i].CompareTag("BannedArea"))
                 {
                     isBannedAreaIncluded = true;
-                    image.color = originFadeColor;
+                    image.color = redFadeColor;
                     canInstall = false;
                     break;
                 }
