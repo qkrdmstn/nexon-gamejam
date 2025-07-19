@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScene0.unity
     guid: 8c6f324a70e6a7a439353883caabc8bd
   - enabled: 1
-    path: Assets/Scenes/Stage0.unity
+    path: Assets/Scenes/Stage.unity
     guid: 141f5bdbe56074144bb34ae1e7ffd4d4
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
