@@ -78,6 +78,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             int towerCost = MapManager.Instance.GetTowerCost(type);
             GameManager.instance.UseGold(towerCost);
             towerObj.transform.position = installPos;
+            SoundManager.Instance.PlaySFX(SFX.TOWER_PLACE);
         }
 
         isDragging = false;

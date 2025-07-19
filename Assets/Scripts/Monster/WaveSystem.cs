@@ -44,6 +44,7 @@ public class WaveSystem : MonoBehaviour
             currentWaveIndex++;
             monsterSpawner.StartWave(waves[currentWaveIndex]);
             yield return new WaitUntil(() => monsterSpawner.MonsterList.Count == 0);
+            SoundManager.Instance.PlaySFX(SFX.WAVE_CLEAR);
 
         }
         WaveEnd();

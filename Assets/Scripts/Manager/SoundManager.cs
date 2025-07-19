@@ -4,6 +4,7 @@ using UnityEngine;
 public enum BGM
 {
     STAGE,
+    CUTSCENE_FIRST
 }
 
 public enum SFX
@@ -11,6 +12,11 @@ public enum SFX
     COIN,
     HIT,
     PARRY,
+    POTION,
+    STAGE_CLEAR,
+    TOWER_PLACE,
+    CLICK,
+    WAVE_CLEAR,
 }
 
 public class SoundManager : MonoBehaviour

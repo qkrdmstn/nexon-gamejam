@@ -598,8 +598,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 082cfd921ed94f14bb26b906146ddc31, type: 3}
   - {fileID: 8300000, guid: 2245df41fd86365488727f74fa1fd9ce, type: 3}
   - {fileID: 8300000, guid: 41a759c440ee0da44a7b9ff41607eef2, type: 3}
+  - {fileID: 8300000, guid: 9a796c0275145984eb95ec6e22912708, type: 3}
+  - {fileID: 8300000, guid: 50960b36ce7930641892e46ac4300240, type: 3}
+  - {fileID: 8300000, guid: a85ed8146bb2102408554b60454014b6, type: 3}
+  - {fileID: 8300000, guid: 91f0ea9fb2c3a084bbf9da80307793c4, type: 3}
+  - {fileID: 8300000, guid: d927647354f607d42b794a856239dd21, type: 3}
   bgms:
   - {fileID: 8300000, guid: 1605d29816c01e54f95f42e3d011cfec, type: 3}
+  - {fileID: 8300000, guid: f61aafe9f6b47c3418a1459c3a714f13, type: 3}
 --- !u!4 &865038134
 Transform:
   m_ObjectHideFlags: 0

@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         FindObjectOfType<StageClearUI>().SetActiveUI();
+        SoundManager.Instance.PlaySFX(SFX.STAGE_CLEAR);
     }
 
     public void NxtScene()

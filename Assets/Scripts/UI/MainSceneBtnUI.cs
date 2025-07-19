@@ -7,6 +7,6 @@ public class MainSceneBtnUI : MonoBehaviour
     public void GameStart()
     {
         GameManager.instance.NxtScene();
-        Debug.Log("@#");
+        SoundManager.Instance.PlayBGM(BGM.CUTSCENE_FIRST);
     }
 }
