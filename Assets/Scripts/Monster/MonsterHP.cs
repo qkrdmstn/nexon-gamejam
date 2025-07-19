@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterHP : MonoBehaviour
@@ -26,10 +25,10 @@ public class MonsterHP : MonoBehaviour
     {
         if (isDead) return;
         currentHP -= damage;
-
+        SoundManager.Instance.PlaySFX(SFX.HIT);
         StopCoroutine(DamagedProcess(hitDuration));
         StartCoroutine(DamagedProcess(hitDuration));
-        if(currentHP <= 0)
+        if (currentHP <= 0)
         {
             isDead = true;
             monster.OnDead(MonsterDestroyType.Kill);

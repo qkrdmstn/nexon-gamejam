@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
         SetUp();
+        SoundManager.Instance.PlayBGM(BGM.STAGE);
     }
 
     public void SetUp()

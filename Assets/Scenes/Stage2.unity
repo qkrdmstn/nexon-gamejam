@@ -3198,6 +3198,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 1406029877}
   sfxSource: {fileID: 138861592}
+  clips:
+  - {fileID: 8300000, guid: 082cfd921ed94f14bb26b906146ddc31, type: 3}
+  - {fileID: 8300000, guid: 2245df41fd86365488727f74fa1fd9ce, type: 3}
+  - {fileID: 8300000, guid: 41a759c440ee0da44a7b9ff41607eef2, type: 3}
+  bgms:
+  - {fileID: 8300000, guid: 1605d29816c01e54f95f42e3d011cfec, type: 3}
 --- !u!4 &1311775276
 Transform:
   m_ObjectHideFlags: 0

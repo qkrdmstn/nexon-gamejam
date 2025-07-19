@@ -1,10 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using System;
-using System.Collections.Generic;
-using UnityEngine.U2D;
-using Cinemachine;
-using Unity.VisualScripting;
 public enum PlayerDamageType
 {
     Monster,
@@ -75,7 +70,7 @@ public class Player : MonoBehaviour
 
         //패링 게이지 회복
         parryingGaugeRecoveryTimer -= Time.deltaTime;
-        if(parryingGaugeRecoveryTimer < 0.0f)
+        if (parryingGaugeRecoveryTimer < 0.0f)
         {
             parryingGaugeRecoveryTimer = parryingGaugeRecoveryInterval;
             GetParryingGauge(parryingGaugeRecoveryValue);
@@ -105,7 +100,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             Color color = spriteRenderer.color;
-            
+
             //적의 투명도 조정
             color.a = 0.4f;
             spriteRenderer.color = color;
@@ -131,6 +126,7 @@ public class Player : MonoBehaviour
     {
         Time.timeScale = parryingTimeScale;
         Collider2D[] inRangeTarget = Physics2D.OverlapCircleAll(this.transform.position, impactRadius);
+        SoundManager.Instance.PlaySFX(SFX.PARRY);
         for (int i = 0; i < inRangeTarget.Length; i++)
         {
             GameObject target = inRangeTarget[i].gameObject;
@@ -143,7 +139,7 @@ public class Player : MonoBehaviour
         }
         yield return new WaitForSeconds(parryingDuration);
         Time.timeScale = 1.0f;
-        
+
     }
 
     public void SetIdleStatePlayer()
