@@ -30,6 +30,8 @@ public class PlayerMoveState : PlayerState
             return;
         }
 
+        if (player.isDead) return;
+
         base.Update();
 
         //Move

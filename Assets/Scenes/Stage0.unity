@@ -3429,6 +3429,11 @@ MonoBehaviour:
   btnL: {fileID: 142119511}
   btnR: {fileID: 406191089}
   btnClose: {fileID: 1076476280}
+--- !u!224 &1876438303 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8744891535100366732, guid: d764193777b232d4285f64d75d9cdc65, type: 3}
+  m_PrefabInstance: {fileID: 2209979619898142228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911517571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,7 +3643,7 @@ MonoBehaviour:
   - {fileID: 5848718310998075729, guid: 05ef44b2cd861c94ca99ccb64c16e05f, type: 3}
   - {fileID: 5848718310998075729, guid: e965313e8458b764cbab2603b7a65ec4, type: 3}
   monsterHPSliderPrefab: {fileID: 9018223984856016244, guid: e7eb623f29379f44fac643fa0c71c162, type: 3}
-  canvasTransform: {fileID: 0}
+  canvasTransform: {fileID: 1876438303}
   wayPoints:
   - {fileID: 1803395890}
   - {fileID: 633405761}
