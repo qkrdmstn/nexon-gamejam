@@ -9,7 +9,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     [SerializeField] GameObject lockUI;
     Color initColor;
     Color originFadeColor;
-    TowerGround touchingGround;
+    Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
     float initScale;
     Image image;
@@ -28,7 +28,6 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         initScale = transform.localScale.x;
         canInstall = false;
         canPurchase = false;
-        touchingGround = null;
     }
 
     private void Start()
@@ -45,7 +44,6 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         SetScale(1);
         image.color = originFadeColor;
         canInstall = false;
-        MapManager.Instance.SetAllTowerGroundHighlight(true);
         Time.timeScale = SLOW_SCALE;
     }
 
@@ -58,14 +56,12 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             var towerObj = MapManager.Instance.GetTowerObj(type);
             int towerCost = MapManager.Instance.GetTowerCost(type);
             GameManager.instance.UseGold(towerCost);
-            towerObj.transform.position = touchingGround.transform.position;
-            touchingGround.IsEmpty = false;
+            towerObj.transform.position = installPos;
         }
 
         transform.position = initPos;
         SetScale(initScale);
         image.color = initColor;
-        MapManager.Instance.SetAllTowerGroundHighlight(false);
         Time.timeScale = 1;
     }
 
@@ -82,36 +78,33 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         // UI → 월드 좌표 변환
         Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, rectTransform.position);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+        installPos = worldPos;
 
         // 물리 충돌 검사 (2D)
         Collider2D[] hit = Physics2D.OverlapPointAll(worldPos);
         if (hit.Length > 0)
         {
-            bool isTowerGround = false;
+            bool isBannedAreaIncluded = false;
             for (int i = 0; i < hit.Length; i++)
             {
-                if (hit[i].CompareTag("TowerGround"))
+                if (hit[i].CompareTag("BannedArea"))
                 {
-                    TowerGround tg = hit[i].GetComponent<TowerGround>();
-                    if (tg.IsEmpty)
-                    {
-                        isTowerGround = true;
-                        touchingGround = tg;
-                        image.color = greenFadeColor;
-                        canInstall = true;
-                    }
+                    isBannedAreaIncluded = true;
+                    image.color = originFadeColor;
+                    canInstall = false;
+                    break;
                 }
             }
-            if (!isTowerGround)
+            if (!isBannedAreaIncluded)
             {
-                image.color = originFadeColor;
-                canInstall = false;
+                image.color = greenFadeColor;
+                canInstall = true;
             }
         }
         else
         {
-            image.color = originFadeColor;
-            canInstall = false;
+            image.color = greenFadeColor;
+            canInstall = true;
         }
     }
 

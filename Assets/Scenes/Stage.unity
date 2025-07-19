@@ -1007,29 +1007,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 473795033}
-  - component: {fileID: 473795032}
   - component: {fileID: 473795035}
   - component: {fileID: 473795034}
   m_Layer: 0
-  m_Name: TowerGround (3)
-  m_TagString: TowerGround
+  m_Name: BannedArea4
+  m_TagString: BannedArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &473795032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473795031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b387cbab47bf99c419bdd3edbc31a318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 242587056}
 --- !u!4 &473795033
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,7 +1025,7 @@ Transform:
   m_GameObject: {fileID: 473795031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.89, y: -1.15, z: 0.054255348}
+  m_LocalPosition: {x: -1.46, y: -0.71, z: 0.054255348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1314,12 +1300,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 527898851}
-  - component: {fileID: 527898850}
   - component: {fileID: 527898849}
   - component: {fileID: 527898848}
   m_Layer: 0
-  m_Name: TowerGround (2)
-  m_TagString: TowerGround
+  m_Name: BannedArea3
+  m_TagString: BannedArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1396,19 +1381,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &527898850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527898847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b387cbab47bf99c419bdd3edbc31a318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 1468561394}
 --- !u!4 &527898851
 Transform:
   m_ObjectHideFlags: 0
@@ -1418,7 +1390,7 @@ Transform:
   m_GameObject: {fileID: 527898847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.15, y: 1.94, z: 0.054255348}
+  m_LocalPosition: {x: 4.21, y: 1.85, z: 0.054255348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2168,7 +2140,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964998073}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2183,7 +2155,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -2361,6 +2333,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 314489183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &980921708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7548904224041526503, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_Name
+      value: ChaseTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4934602
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.303057
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.038177915
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461510918790873483, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
 --- !u!1 &1003160621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,12 +2745,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1083543880}
-  - component: {fileID: 1083543879}
   - component: {fileID: 1083543878}
   - component: {fileID: 1083543877}
   m_Layer: 0
-  m_Name: TowerGround
-  m_TagString: TowerGround
+  m_Name: BannedArea1
+  m_TagString: BannedArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2798,19 +2826,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &1083543879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083543876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b387cbab47bf99c419bdd3edbc31a318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 1736693865}
 --- !u!4 &1083543880
 Transform:
   m_ObjectHideFlags: 0
@@ -2820,7 +2835,7 @@ Transform:
   m_GameObject: {fileID: 1083543876}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.9, y: -0.74, z: 0.054255348}
+  m_LocalPosition: {x: -6.8, y: 1.71, z: 0.054255348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3741,11 +3756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0345089113ad3149bf418c80cbbbae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerGrounds:
-  - {fileID: 1083543879}
-  - {fileID: 1931478159}
-  - {fileID: 473795032}
-  - {fileID: 527898850}
   towerPrefabs:
   - {fileID: 8500243562697560140, guid: 9aa131035a2b4be4c9fd239d2192dc03, type: 3}
   - {fileID: 8038391462898589332, guid: e02160c73a2b701468fcbb76e3342b0b, type: 3}
@@ -3806,12 +3816,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1931478160}
-  - component: {fileID: 1931478159}
   - component: {fileID: 1931478158}
   - component: {fileID: 1931478157}
   m_Layer: 0
-  m_Name: TowerGround (1)
-  m_TagString: TowerGround
+  m_Name: BannedArea2
+  m_TagString: BannedArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3888,19 +3897,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &1931478159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931478156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b387cbab47bf99c419bdd3edbc31a318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 211399816}
 --- !u!4 &1931478160
 Transform:
   m_ObjectHideFlags: 0
@@ -3910,7 +3906,7 @@ Transform:
   m_GameObject: {fileID: 1931478156}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.44, y: -0.7, z: 0.054255348}
+  m_LocalPosition: {x: -5.73, y: -0.93, z: 0.054255348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4237,3 +4233,4 @@ SceneRoots:
   - {fileID: 1931478160}
   - {fileID: 527898851}
   - {fileID: 473795033}
+  - {fileID: 980921708}
