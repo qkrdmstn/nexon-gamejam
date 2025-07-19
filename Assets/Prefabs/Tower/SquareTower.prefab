@@ -393,7 +393,7 @@ MonoBehaviour:
   cost: 30
   bulletPrefab: {fileID: 3460312307952903305, guid: aeddfb48a92846a4b80af1499a91c75f, type: 3}
   range: 6
-  rangeVisual: {fileID: 0}
+  rangeVisual: {fileID: 6257219353384359161}
   patternInterval: 1
   bulletCnt: 30
   delta: 45
