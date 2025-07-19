@@ -496,8 +496,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3460312307952903305, guid: dd27aa87ea2f2bc4f97167b1944c61eb, type: 3}
   range: 6
   rangeVisual: {fileID: 4645251015000725178}
-  patternInterval: 1.5
-  bulletCnt: 15
+  patternInterval: 2
+  bulletCnt: 20
 --- !u!58 &2304088003081424762
 CircleCollider2D:
   m_ObjectHideFlags: 0

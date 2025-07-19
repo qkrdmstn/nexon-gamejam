@@ -629,7 +629,7 @@ MonoBehaviour:
   range: 6
   rangeVisual: {fileID: 4222403276995231864}
   patternInterval: 3
-  bulletCnt: 15
+  bulletCnt: 20
   delta: 15
   delay: 0.25
 --- !u!58 &1049833309390203006

@@ -397,7 +397,7 @@ MonoBehaviour:
   patternInterval: 1
   bulletCnt: 18
   delta: 45
-  delay: 0.3
+  delay: 0.4
 --- !u!58 &3786222463766761606
 CircleCollider2D:
   m_ObjectHideFlags: 0
