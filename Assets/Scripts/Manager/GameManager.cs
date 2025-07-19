@@ -2,9 +2,20 @@ using Cinemachine;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum SceneType
+{
+    Main,
+    CutScene0,
+    Stage0, Stage1, Stage2,
+    CurScene1
+}
 
 public class GameManager : MonoBehaviour
 {
+    public SceneType curScene;
+
     public int gold;
     public int curHP;
     public int maxHP;
@@ -36,7 +47,9 @@ public class GameManager : MonoBehaviour
 
     public void SetUp()
     {
+        Time.timeScale = 1.0f;
         curHP = maxHP;
+        gold = 50;
     }
 
     // Update is called once per frame
@@ -71,11 +84,40 @@ public class GameManager : MonoBehaviour
         impulseSource.GenerateImpulse();
         OnHPChanged.Invoke();
         if (curHP <= 0)
-            GameOver();
+            StageOver();
     }
 
-    public void GameOver()
+    
+    public void StageOver()
     {
-        Debug.Log("GameOVer");
+        Time.timeScale = 0.0f;
+        FindObjectOfType<StageOverUI>().SetActiveUI();
+    }
+    public void StageClear()
+    {
+        FindObjectOfType<StageClearUI>().SetActiveUI();
+    }
+
+    public void NxtScene()
+    {
+        int nxtSceneNum = (int)curScene + 1;
+        ChangeScene((SceneType)nxtSceneNum);
+    }
+
+    public void PreveScene()
+    {
+        int prevSceneNum = (int)curScene - 1;
+        ChangeScene((SceneType)prevSceneNum);
+    }
+
+    public void ReloadScene()
+    {
+        ChangeScene(curScene);
+    }
+
+    public void ChangeScene(SceneType type)
+    {
+        SceneManager.LoadScene(type.ToString());
+        SetUp();
     }
 }

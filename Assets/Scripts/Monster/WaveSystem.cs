@@ -35,7 +35,7 @@ public class WaveSystem : MonoBehaviour
     //스테이지 클리어
     public void WaveEnd()
     {
-        Debug.Log("Stage Clear");
+        GameManager.instance.StageClear();
     }
 }
 
