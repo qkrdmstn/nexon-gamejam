@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int curHP;
     public int maxHP;
 
+    public GameObject playerObj;
     public CinemachineImpulseSource impulseSource;
     [SerializeField] List<TowerShopIcon> towershops;
     public event Action OnGolded; //°ñµå È¹µæÇßÀ» ¶§ ÄÝ¹é ÀÌº¥Æ®
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         curHP = maxHP;
         gold = 50;
+        playerObj = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
             StageOver();
     }
 
-    
+
     public void StageOver()
     {
         Time.timeScale = 0.0f;

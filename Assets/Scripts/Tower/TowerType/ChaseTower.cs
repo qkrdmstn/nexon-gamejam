@@ -5,12 +5,10 @@ public class ChaseTower : TowerBase
 {
     [SerializeField] int bulletCnt;
     [SerializeField] float delay;
-    private GameObject playerObj;
 
     new protected void Start()
     {
         base.Start();
-        playerObj = GameObject.FindWithTag("Player");
         wfsCache = new WaitForSeconds(delay);
     }
 
@@ -26,7 +24,7 @@ public class ChaseTower : TowerBase
     {
         for (int i = 0; i < bulletCnt; i++)
         {
-            var dir = (playerObj.transform.position - transform.position).normalized;
+            var dir = (GameManager.instance.playerObj.transform.position - transform.position).normalized;
             FireBullet(dir);
             yield return wfsCache;
         }
