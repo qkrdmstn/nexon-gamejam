@@ -818,10 +818,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e37c2aed74105e47b525af8954c6fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curScene: 0
+  curScene: 2
   gold: 50
   curHP: 10
   maxHP: 10
+  playerObj: {fileID: 0}
   impulseSource: {fileID: 458926959}
   towershops:
   - {fileID: 1608710526040274388}

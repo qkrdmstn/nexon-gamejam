@@ -33,7 +33,12 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         rectTransform = GetComponent<RectTransform>();
         lockUI.SetActive(!canPurchase);
-        CheckPurchase(GameManager.instance.gold);
+        CheckPurchase();
+        GameManager.instance.OnGolded += CheckPurchase;
+    }
+    private void OnDestroy()
+    {
+        GameManager.instance.OnGolded -= CheckPurchase;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -107,9 +112,9 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         }
     }
 
-    public void CheckPurchase(int currentGold) //GameManager에서 Gold가 변동할 때마다 이걸 호출해야함.
+    public void CheckPurchase() //GameManager에서 Gold가 변동할 때마다 이걸 호출해야함.
     {
-        if (MapManager.Instance.GetTowerCost(type) <= currentGold)
+        if (MapManager.Instance.GetTowerCost(type) <= GameManager.instance.gold)
         {
             canPurchase = true;
         }
