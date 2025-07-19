@@ -186,9 +186,8 @@ MonoBehaviour:
   wayPointCnt: 0
   currentIndex: 0
   moveDir: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
-  gold: 10
-  parrying: 10
+  moveSpeed: 1.5
+  gold: 5
 --- !u!114 &7907262335227152193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2635b8d0b41744f4e9631dc54e56369c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 30
 --- !u!114 &5929925976379770384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +249,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07808167, y: 0.45047128}
-  m_Size: {x: 0.857273, y: 1.2125561}
+  m_Offset: {x: -0.123758495, y: 0.627043}
+  m_Size: {x: 1.0134364, y: 1.5128703}
   m_Direction: 0
 --- !u!50 &-4048484977269152877
 Rigidbody2D:

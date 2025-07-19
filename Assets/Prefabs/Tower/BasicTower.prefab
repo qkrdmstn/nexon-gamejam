@@ -492,12 +492,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9331a0835c1e33041951bd6b82a2baa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 30
   bulletPrefab: {fileID: 3460312307952903305, guid: dd27aa87ea2f2bc4f97167b1944c61eb, type: 3}
   range: 6
   rangeVisual: {fileID: 4645251015000725178}
   patternInterval: 1.5
-  bulletCnt: 40
+  bulletCnt: 15
 --- !u!58 &2304088003081424762
 CircleCollider2D:
   m_ObjectHideFlags: 0
