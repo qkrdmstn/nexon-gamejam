@@ -22,13 +22,12 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
     private float initMoveSpeed;
-    private bool isDead;
 
     //처치 시 획득 골드
     [SerializeField]
     private int gold = 10;
-    public float parrying = 10.0f;
-    
+    private float parrying = 10.0f;
+
     //기타 컴포넌트
     private MonsterSpawner monsterSpawner;
     private MonsterAnimController monsterAnimController;
@@ -55,7 +54,6 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead) return;
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }
 
@@ -94,29 +92,17 @@ public class Monster : MonoBehaviour
 
     public void OnDead(MonsterDestroyType type)
     {
-        StartCoroutine(OnDeadCoroutine(type));
-    }
-
-    public IEnumerator OnDeadCoroutine(MonsterDestroyType type)
-    {
-        isDead = true;
-        if (type == MonsterDestroyType.Kill)
-        {
-            monsterAnimController.SetCurrentAnimation(MonsterAnimState.Dead);
-            yield return new WaitForSeconds(0.7f);
-        }
+        monsterAnimController.SetCurrentAnimation(MonsterAnimState.Dead);
         monsterSpawner.DestoryMonster(type, this, gold);
     }
 
     public void RestoreMoveSpeed() //이동속도 원상 복구
     {
         moveSpeed = initMoveSpeed;
-        Debug.Log("이동속도 원상복구");
     }
 
-    public void DecreaseMoveSpeed(int decreasePercent) //이동속도를 decreasePercent% 감소 
+    public void DecreaseMoveSpeed(int decreasePercent) //이동속도를 decreasePercent%만큼 감소 
     {
-        moveSpeed *= 1 - decreasePercent * 0.01f;
-        Debug.Log("이동속도 감소");
+        moveSpeed = initMoveSpeed * (1 - decreasePercent * 0.01f);
     }
 }

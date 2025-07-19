@@ -927,7 +927,7 @@ RectTransform:
   m_GameObject: {fileID: 433309450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1.00008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1780786393}
@@ -950,7 +950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.56078434}
+  redFadeColor: {r: 1, g: 0, b: 0, a: 0.7372549}
+  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.7372549}
   lockUI: {fileID: 810693023}
 --- !u!114 &433309453
 MonoBehaviour:
@@ -965,16 +966,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.93731594, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab53083d249c11343ad5bf4f8a84c535, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1202,7 +1203,7 @@ RectTransform:
   m_GameObject: {fileID: 481383672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1400644051}
@@ -1225,7 +1226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.56078434}
+  redFadeColor: {r: 1, g: 0, b: 0, a: 0.7372549}
+  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.7372549}
   lockUI: {fileID: 236464272}
 --- !u!114 &481383675
 MonoBehaviour:
@@ -1240,16 +1242,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.06623721, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4ac180b79aa022b459badade03200394, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1570,7 +1572,7 @@ RectTransform:
   m_GameObject: {fileID: 735604960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1.00008}
+  m_LocalScale: {x: 1, y: 1, z: 1.00008}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 467479327}
@@ -1593,7 +1595,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.56078434}
+  redFadeColor: {r: 1, g: 0, b: 0, a: 0.7372549}
+  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.7372549}
   lockUI: {fileID: 960660408}
 --- !u!114 &735604963
 MonoBehaviour:
@@ -1608,16 +1611,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.47807884, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 30f9fb90a7d9db74eb275781f35833eb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2519,7 +2522,7 @@ RectTransform:
   m_GameObject: {fileID: 1003160621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1237077394}
@@ -2542,7 +2545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.56078434}
+  redFadeColor: {r: 1, g: 0, b: 0, a: 0.7372549}
+  greenFadeColor: {r: 0, g: 1, b: 0.29124546, a: 0.7372549}
   lockUI: {fileID: 1371453661}
 --- !u!114 &1003160624
 MonoBehaviour:
@@ -2557,16 +2561,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.711505, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 228c65b47f6198940853b468c9c5bba8, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4034,13 +4038,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolingObjectDatas:
   - _poolObj: {fileID: 3460312307952903305, guid: dd27aa87ea2f2bc4f97167b1944c61eb, type: 3}
-    _poolAmount: 30
+    _poolAmount: 1000
   - _poolObj: {fileID: 3460312307952903305, guid: 0bad68fe85c02624b88838289491a32e, type: 3}
-    _poolAmount: 30
+    _poolAmount: 1000
   - _poolObj: {fileID: 3460312307952903305, guid: aeddfb48a92846a4b80af1499a91c75f, type: 3}
-    _poolAmount: 30
+    _poolAmount: 1000
   - _poolObj: {fileID: 3460312307952903305, guid: 373bbf7ea2fc3a14e8ab4157596ccb83, type: 3}
-    _poolAmount: 30
+    _poolAmount: 1000
   _parent: {fileID: 1778559114}
 --- !u!4 &1778559114
 Transform:
@@ -4195,10 +4199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefabs:
+  - {fileID: 8500243562697560140, guid: 9aa131035a2b4be4c9fd239d2192dc03, type: 3}
+  - {fileID: 8038391462898589332, guid: e888cbb82f6f2aa478eca241a9aea535, type: 3}
   - {fileID: 2333676836068259348, guid: 2dd5284c54cac1a49b890cd66abb9b6a, type: 3}
   - {fileID: 8038391462898589332, guid: e02160c73a2b701468fcbb76e3342b0b, type: 3}
-  - {fileID: 8038391462898589332, guid: e888cbb82f6f2aa478eca241a9aea535, type: 3}
-  - {fileID: 2333676836068259348, guid: 386a95ce9c20225468758bac4e38bbbd, type: 3}
 --- !u!4 &1836846688
 Transform:
   m_ObjectHideFlags: 0
