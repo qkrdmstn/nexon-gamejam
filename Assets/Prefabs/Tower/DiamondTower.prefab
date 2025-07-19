@@ -633,7 +633,7 @@ MonoBehaviour:
   diamondAngle: 12
   delta: 90
   delayIn: 0.15
-  delayDiamond: 0.5
+  delayDiamond: 0.3
 --- !u!58 &1049833309390203006
 CircleCollider2D:
   m_ObjectHideFlags: 0

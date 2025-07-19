@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998d8723f129b5e4a9c34a2edf6d4743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 50
+  cost: 30
   bulletPrefab: {fileID: 3460312307952903305, guid: 0bad68fe85c02624b88838289491a32e, type: 3}
   range: 6
   rangeVisual: {fileID: 4222403276995231864}
