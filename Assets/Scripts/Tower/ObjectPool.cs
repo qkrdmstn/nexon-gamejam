@@ -145,7 +145,7 @@ public class ObjectPool : MonoBehaviour
         Debug.Log("모든 총알 삭제");
     }
 
-    public void DisblaeAllObjectsForce()
+    public void DisableAllObjectsForce()
     {
         foreach (Transform child in _parent.transform)
         {

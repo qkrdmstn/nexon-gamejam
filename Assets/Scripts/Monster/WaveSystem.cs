@@ -43,7 +43,7 @@ public class WaveSystem : MonoBehaviour
             currentWaveIndex++;
             monsterSpawner.StartWave(waves[currentWaveIndex]);
             yield return new WaitUntil(() => monsterSpawner.MonsterList.Count == 0);
-            ObjectPool.Instance.DisblaeAllObjectsForce();
+            ObjectPool.Instance.DisableAllObjectsForce();
         }
         WaveEnd();
     }
