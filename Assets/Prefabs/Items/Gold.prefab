@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quantity: 0
-  parrying: 0
+  parrying: 10
 --- !u!212 &7816058235837224881
 SpriteRenderer:
   m_ObjectHideFlags: 0

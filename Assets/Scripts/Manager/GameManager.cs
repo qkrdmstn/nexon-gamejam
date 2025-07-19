@@ -1,5 +1,6 @@
 using Cinemachine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -86,17 +87,20 @@ public class GameManager : MonoBehaviour
         impulseSource.GenerateImpulse();
         OnHPChanged.Invoke();
         if (curHP <= 0)
-            StageOver();
+            StartCoroutine(StageOver());
     }
 
-
-    public void StageOver()
+    private IEnumerator StageOver()
     {
+        playerObj.GetComponent<Player>().Dead();
+        yield return new WaitForSeconds(0.9f);
         Time.timeScale = 0.0f;
         FindObjectOfType<StageOverUI>().SetActiveUI();
     }
+
     public void StageClear()
     {
+        Time.timeScale = 0.0f;
         FindObjectOfType<StageClearUI>().SetActiveUI();
     }
 

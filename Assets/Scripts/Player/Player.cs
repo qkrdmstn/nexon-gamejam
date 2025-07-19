@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     [Header("State Info")]
     public bool isDamaged;
+    public bool isParrying;
+    public bool isDead;
 
     [Header("Parrying Info")]
     public float parryingRadius;
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour
     public float parryingGaugeRecoveryTimer;
     public float parryingGaugeRecoveryInterval;
     public float parryingGaugeRecoveryValue;
-    public bool isParrying;
 
     public Vector2 moveDir;
     #region Componets
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
 
+        if (isDead) return;
         //패링
         if (Input.GetKeyDown(KeyCode.Space) && parryingGauge >= 100)
         {
@@ -76,7 +78,6 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(_xVelocity, _yVelocity);
     }
-
 
     public void OnDamage(int damage = 1)
     {
@@ -102,8 +103,9 @@ public class Player : MonoBehaviour
     }
 
     //Todo. GameManager에서 StageOver 함수 코루틴으로 변경, 플레이어 죽음 애니메이션 재생 기다리고 UI 오픈하기
-    private void Dead()
+    public void Dead()
     {
+        isDead = true;
         if (moveDir.x > 0)
             playerAnimController.SetCurrentAnimation(PlayerXDir.Right, PlayerYDir.Front, PlayerAnimState.Dead);
         else

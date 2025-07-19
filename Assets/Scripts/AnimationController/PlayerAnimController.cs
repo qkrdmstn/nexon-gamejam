@@ -76,7 +76,9 @@ public class PlayerAnimController : MonoBehaviour
 
     public void SetMaterialColor(Color color)
     {
-        skeletonAnimationFront.skeleton.SetColor(color);
-        skeletonAnimationBack.skeleton.SetColor(color);
+        if(skeletonAnimationFront.gameObject.activeSelf)
+            skeletonAnimationFront.skeleton.SetColor(color);
+        if(skeletonAnimationBack.gameObject.activeSelf)
+            skeletonAnimationBack.skeleton.SetColor(color);
     }
 }

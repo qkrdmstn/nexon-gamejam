@@ -41,7 +41,7 @@ public class PlayerMoveState : PlayerState
         Vector2 move = dir * moveSpeed;
         player.SetVelocity(move.x, move.y);
 
-        if (player.isParrying) return;
+        if (player.isParrying || player.isDead) return;
         PlayerXDir xDir = PlayerXDir.Left;
         PlayerYDir yDir = PlayerYDir.Front;
         if (player.moveDir.x > 0) xDir = PlayerXDir.Right;
