@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 30
   bulletPrefab: {fileID: 3460312307952903305, guid: 39520a38df15df84c93d524e38aaa49d, type: 3}
-  range: 50
+  range: 5
   rangeVisual: {fileID: 3283516579397549928}
   patternInterval: 3
   bulletCnt: 5

@@ -70,7 +70,7 @@ public class MonsterSpawner : MonoBehaviour
             goldObj.GetComponent<Gold>().quantity = gold;
 
             float randomVal = Random.Range(0.0f, 100.0f);
-            if(randomVal < 40.0f)
+            if(randomVal < 20.0f)
                 Instantiate(potionPrefab, monster.transform.position, Quaternion.identity);
         }
 

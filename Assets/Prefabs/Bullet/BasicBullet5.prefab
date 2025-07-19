@@ -101,11 +101,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   originalDamage: 2
-  speed: 5
+  speed: 1.75
   lifeTime: 10
   originalScale: 0.1
   parryingDamage: 10
-  parryingScale: 0.5
+  parryingScale: 0.4
 --- !u!58 &6582447264443048545
 CircleCollider2D:
   m_ObjectHideFlags: 0
