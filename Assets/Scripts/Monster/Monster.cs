@@ -66,7 +66,7 @@ public class Monster : MonoBehaviour
         while (true)
         {
             //�������� ����
-            if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.05f * moveSpeed)
+            if (Vector3.Distance(transform.position, wayPoints[currentIndex].position) < 0.1f * moveSpeed)
                 NextMoveTo();
             yield return null;
         }

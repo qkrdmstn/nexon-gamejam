@@ -1,7 +1,6 @@
 using Cinemachine;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +9,7 @@ public enum SceneType
     Main,
     CutScene0,
     Stage0, Stage1, Stage2,
-    CutScene1
+    CurScene1
 }
 
 public class GameManager : MonoBehaviour
@@ -23,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerObj;
     public CinemachineImpulseSource impulseSource;
-    [SerializeField] List<TowerShopIcon> towershops;
     public event Action OnGolded; //°ñµå È¹µæÇßÀ» ¶§ ÄÝ¹é ÀÌº¥Æ®
     public event Action OnHPChanged; //HP ´â¾ÒÀ» ¶§ ÄÝ¹é ÀÌº¥Æ®
     public static GameManager instance;
@@ -53,6 +51,7 @@ public class GameManager : MonoBehaviour
         curHP = maxHP;
         gold = 50;
         playerObj = GameObject.FindWithTag("Player");
+        StartCoroutine(FindPlayerAwait());
     }
 
     // Update is called once per frame
@@ -64,14 +63,12 @@ public class GameManager : MonoBehaviour
     public void GetGold(int num)
     {
         gold += num;
-        towershops.ForEach(ts => ts.CheckPurchase(gold));
         OnGolded.Invoke();
     }
 
     public void UseGold(int num)
     {
         gold -= num;
-        towershops.ForEach(ts => ts.CheckPurchase(gold));
         OnGolded.Invoke();
     }
 
@@ -87,20 +84,17 @@ public class GameManager : MonoBehaviour
         impulseSource.GenerateImpulse();
         OnHPChanged.Invoke();
         if (curHP <= 0)
-            StartCoroutine(StageOver());
+            StageOver();
     }
 
-    private IEnumerator StageOver()
+
+    public void StageOver()
     {
-        playerObj.GetComponent<Player>().Dead();
-        yield return new WaitForSeconds(0.9f);
         Time.timeScale = 0.0f;
         FindObjectOfType<StageOverUI>().SetActiveUI();
     }
-
     public void StageClear()
     {
-        Time.timeScale = 0.0f;
         FindObjectOfType<StageClearUI>().SetActiveUI();
     }
 
@@ -125,5 +119,11 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(type.ToString());
         SetUp();
+    }
+
+    private IEnumerator FindPlayerAwait()
+    {
+        yield return new WaitForSeconds(2);
+        playerObj = GameObject.FindWithTag("Player");
     }
 }
