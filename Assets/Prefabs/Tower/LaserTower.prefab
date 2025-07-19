@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
-  bulletPrefab: {fileID: 3460312307952903305, guid: 373bbf7ea2fc3a14e8ab4157596ccb83, type: 3}
+  bulletPrefab: {fileID: 3460312307952903305, guid: dd27aa87ea2f2bc4f97167b1944c61eb, type: 3}
   range: 6
   rangeVisual: {fileID: 1082839972049076681}
   patternInterval: 2
