@@ -562,7 +562,7 @@ MonoBehaviour:
   range: 50
   rangeVisual: {fileID: 3283516579397549928}
   patternInterval: 3
-  bulletCnt: 8
+  bulletCnt: 5
   delay: 0.1
 --- !u!58 &3786222463766761606
 CircleCollider2D:

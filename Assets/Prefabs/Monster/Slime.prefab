@@ -187,7 +187,7 @@ MonoBehaviour:
   currentIndex: 0
   moveDir: {x: 0, y: 0, z: 0}
   moveSpeed: 2.2
-  gold: 15
+  gold: 10
 --- !u!114 &5183200417876546056
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -395,7 +395,7 @@ MonoBehaviour:
   range: 6
   rangeVisual: {fileID: 6257219353384359161}
   patternInterval: 1
-  bulletCnt: 25
+  bulletCnt: 18
   delta: 45
   delay: 0.3
 --- !u!58 &3786222463766761606

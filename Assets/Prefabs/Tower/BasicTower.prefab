@@ -497,7 +497,7 @@ MonoBehaviour:
   range: 6
   rangeVisual: {fileID: 4645251015000725178}
   patternInterval: 1.5
-  bulletCnt: 20
+  bulletCnt: 15
 --- !u!58 &2304088003081424762
 CircleCollider2D:
   m_ObjectHideFlags: 0
