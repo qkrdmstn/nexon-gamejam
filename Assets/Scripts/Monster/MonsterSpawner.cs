@@ -88,7 +88,7 @@ public class MonsterSpawner : MonoBehaviour
         sliderClone.transform.localScale = Vector3.one;
 
         //체력 몬스터 설정
-        sliderClone.GetComponent<SliderPositionAutoSetter>().SetUp(monster.transform);
+        sliderClone.GetComponent<SliderPositionAutoSetter>().SetUp(monster.GetComponent<Monster>());
         sliderClone.GetComponent<MonsterHPViewer>().SetUp(monster.GetComponent<MonsterHP>());
     }
 }

@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private int currentIndex;
     [SerializeField]
-    private Vector3 moveDir;
+    public Vector3 moveDir;
     [SerializeField]
     private float moveSpeed;
     private float initMoveSpeed;
