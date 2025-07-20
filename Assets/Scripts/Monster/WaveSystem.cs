@@ -41,11 +41,11 @@ public class WaveSystem : MonoBehaviour
             waveUI.SetActiveUI(true);
             yield return new WaitForSeconds(uiInterval);
             waveUI.SetActiveUI(false);
-
             yield return new WaitForSeconds(waveInterval - uiInterval);
             currentWaveIndex++;
             monsterSpawner.StartWave(waves[currentWaveIndex]);
             yield return new WaitUntil(() => monsterSpawner.MonsterList.Count == 0);
+            ObjectPool.Instance.DisableAllObjectsForce();
             SoundManager.Instance.PlaySFX(SFX.WAVE_CLEAR);
 
         }
