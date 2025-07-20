@@ -9,7 +9,7 @@ public enum SceneType
     Main,
     CutScene0,
     Stage0, Stage1, Stage2,
-    CurScene1
+    CutScene1
 }
 
 public class GameManager : MonoBehaviour
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         impulseSource = GetComponent<CinemachineImpulseSource>();
         SetUp();
-        SoundManager.Instance.PlayBGM(BGM.STAGE);
+        SoundManager.Instance.PlayBGM(BGM.MENU);
     }
 
     public void SetUp()
@@ -124,6 +124,9 @@ public class GameManager : MonoBehaviour
         curScene = type;
         SceneManager.LoadScene(type.ToString());
         SetUp();
+
+        if (type == SceneType.CutScene1)
+            SoundManager.Instance.PlayBGM(BGM.CUTSCENE_ENDING);
     }
 
     private IEnumerator FindPlayerAwait()

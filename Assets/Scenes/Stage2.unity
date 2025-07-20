@@ -2536,7 +2536,7 @@ MonoBehaviour:
   monsterSpawner: {fileID: 2128020639}
   currentWaveIndex: -1
   waveInterval: 5
-  uiInterval: 0
+  uiInterval: 2
   waveUI: {fileID: 0}
   isStage0: 0
   tutorial: {fileID: 0}

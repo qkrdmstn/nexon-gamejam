@@ -27,6 +27,8 @@ public class WaveSystem : MonoBehaviour
 
     private IEnumerator WaveCoroutine()
     {
+        SoundManager.Instance.PlayBGM(BGM.STAGE);
+
         if (isStage0) //0스테이지 튜토리얼 진입
         {
             tutorial.OpenTutorial();

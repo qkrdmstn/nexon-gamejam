@@ -4,7 +4,9 @@ using UnityEngine;
 public enum BGM
 {
     STAGE,
-    CUTSCENE_FIRST
+    CUTSCENE_FIRST,
+    MENU,
+    CUTSCENE_ENDING,
 }
 
 public enum SFX
