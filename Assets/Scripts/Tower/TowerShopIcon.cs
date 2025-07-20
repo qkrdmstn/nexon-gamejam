@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     [SerializeField] Color greenFadeColor;
     [SerializeField] GameObject lockUI;
     [SerializeField] GameObject explainUI;
+    [SerializeField] TextMeshProUGUI descTMpro;
+    [SerializeField] string description;
     Color initColor;
     Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
@@ -35,7 +38,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        lockUI.SetActive(!canPurchase);
+        SetLock();
         explainUI.SetActive(false);
         CheckPurchase();
         GameManager.instance.OnGolded += CheckPurchase;
@@ -48,20 +51,25 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!isDragging)
+        {
             explainUI.SetActive(true);
+            descTMpro.text = description;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         explainUI.SetActive(false);
+        descTMpro.text = "";
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!canPurchase) return;
         //Debug.Log("UI 클릭 시작");
-        SetScale(1);
+        //SetScale(1);
         explainUI.SetActive(false);
+        descTMpro.text = "";
         image.color = redFadeColor;
         canInstall = false;
         Time.timeScale = SLOW_SCALE;
@@ -78,6 +86,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             int towerCost = MapManager.Instance.GetTowerCost(type);
             GameManager.instance.UseGold(towerCost);
             towerObj.transform.position = installPos;
+            SoundManager.Instance.PlaySFX(SFX.TOWER_PLACE);
         }
 
         isDragging = false;
@@ -140,11 +149,16 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         {
             canPurchase = false;
         }
-        lockUI.SetActive(!canPurchase);
+        SetLock();
     }
 
     private void SetScale(float value)
     {
         transform.localScale = new Vector3(value, value, 1);
+    }
+
+    private void SetLock()
+    {
+        lockUI.SetActive(!canPurchase);
     }
 }

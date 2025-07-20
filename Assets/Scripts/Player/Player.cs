@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
             playerAnimController.SetCurrentAnimation(PlayerXDir.Right, PlayerYDir.Front, PlayerAnimState.Dead);
         else
             playerAnimController.SetCurrentAnimation(PlayerXDir.Left, PlayerYDir.Front, PlayerAnimState.Dead);
+        SetVelocity(0, 0);
     }
 
     private IEnumerator ParryingCoroutine(float impactRadius)

@@ -11,6 +11,7 @@ public class Potion : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             GameManager.instance.RecoverHP(quantity);
+            SoundManager.Instance.PlaySFX(SFX.POTION);
             Destroy(gameObject);
         }
     }

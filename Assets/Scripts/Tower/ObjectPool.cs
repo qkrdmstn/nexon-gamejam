@@ -132,7 +132,28 @@ public class ObjectPool : MonoBehaviour
     {
         foreach (Queue<GameObject> q in _pooledObjects.Values)
             foreach (GameObject poolObj in q)
-                poolObj.SetActive(false);
+            {
+                if (poolObj.activeSelf)
+                {
+                    Debug.Log("asdf");
+                    poolObj.SetActive(false);
+                }
+
+            }
+
+
+        Debug.Log("모든 총알 삭제");
+    }
+
+    public void DisableAllObjectsForce()
+    {
+        foreach (Transform child in _parent.transform)
+        {
+            if (child.gameObject.activeSelf)
+                ReturnObject(child.gameObject);
+        }
+
+        Debug.Log("모든 총알 강제 삭제");
     }
 
     #endregion //public funcs

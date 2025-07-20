@@ -27,6 +27,8 @@ public class WaveSystem : MonoBehaviour
 
     private IEnumerator WaveCoroutine()
     {
+        SoundManager.Instance.PlayBGM(BGM.STAGE);
+
         if (isStage0) //0스테이지 튜토리얼 진입
         {
             tutorial.OpenTutorial();
@@ -44,6 +46,7 @@ public class WaveSystem : MonoBehaviour
             currentWaveIndex++;
             monsterSpawner.StartWave(waves[currentWaveIndex]);
             yield return new WaitUntil(() => monsterSpawner.MonsterList.Count == 0);
+            SoundManager.Instance.PlaySFX(SFX.WAVE_CLEAR);
 
         }
         WaveEnd();
