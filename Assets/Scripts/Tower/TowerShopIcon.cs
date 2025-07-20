@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     [SerializeField] Color greenFadeColor;
     [SerializeField] GameObject lockUI;
     [SerializeField] GameObject explainUI;
+    [SerializeField] TextMeshProUGUI descTMpro;
+    [SerializeField] string description;
     Color initColor;
     Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
@@ -48,20 +51,25 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!isDragging)
+        {
             explainUI.SetActive(true);
+            descTMpro.text = description;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         explainUI.SetActive(false);
+        descTMpro.text = "";
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!canPurchase) return;
         //Debug.Log("UI 클릭 시작");
-        SetScale(1);
+        //SetScale(1);
         explainUI.SetActive(false);
+        descTMpro.text = "";
         image.color = redFadeColor;
         canInstall = false;
         Time.timeScale = SLOW_SCALE;
