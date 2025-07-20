@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,9 +8,8 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     [SerializeField] Color redFadeColor;
     [SerializeField] Color greenFadeColor;
     [SerializeField] GameObject lockUI;
-    [SerializeField] GameObject explainUI;
-    [SerializeField] TextMeshProUGUI descTMpro;
-    [SerializeField] string description;
+    [SerializeField] Image explainUI;
+    [SerializeField] Sprite explainImg;
     Color initColor;
     Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
@@ -39,7 +37,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         rectTransform = GetComponent<RectTransform>();
         SetLock();
-        explainUI.SetActive(false);
+        explainUI.gameObject.SetActive(false);
         CheckPurchase();
         GameManager.instance.OnGolded += CheckPurchase;
     }
@@ -52,15 +50,14 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (!isDragging)
         {
-            explainUI.SetActive(true);
-            descTMpro.text = description;
+            explainUI.gameObject.SetActive(true);
+            explainUI.sprite = explainImg;
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        explainUI.SetActive(false);
-        descTMpro.text = "";
+        explainUI.gameObject.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -68,8 +65,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (!canPurchase) return;
         //Debug.Log("UI 클릭 시작");
         //SetScale(1);
-        explainUI.SetActive(false);
-        descTMpro.text = "";
+        explainUI.gameObject.SetActive(false);
         image.color = redFadeColor;
         canInstall = false;
         Time.timeScale = SLOW_SCALE;
