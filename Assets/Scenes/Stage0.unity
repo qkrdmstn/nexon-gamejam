@@ -3389,10 +3389,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefabs:
-  - {fileID: 8500243562697560140, guid: 9aa131035a2b4be4c9fd239d2192dc03, type: 3}
   - {fileID: 8038391462898589332, guid: e888cbb82f6f2aa478eca241a9aea535, type: 3}
   - {fileID: 2333676836068259348, guid: 2dd5284c54cac1a49b890cd66abb9b6a, type: 3}
-  - {fileID: 8038391462898589332, guid: e02160c73a2b701468fcbb76e3342b0b, type: 3}
+  - {fileID: 2333676836068259348, guid: 386a95ce9c20225468758bac4e38bbbd, type: 3}
+  - {fileID: 7548904224041526503, guid: afaa843502c1af84bb094c08e70aca4c, type: 3}
+  - {fileID: 8500243562697560140, guid: 9aa131035a2b4be4c9fd239d2192dc03, type: 3}
+  - {fileID: 7548904224041526503, guid: cd0f6ecc83eb86d4dbcc0cd9ba508010, type: 3}
 --- !u!4 &1836846688
 Transform:
   m_ObjectHideFlags: 0
@@ -3682,6 +3684,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1384257053347629675, guid: d764193777b232d4285f64d75d9cdc65, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384257053347629675, guid: d764193777b232d4285f64d75d9cdc65, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593872024404066522, guid: d764193777b232d4285f64d75d9cdc65, type: 3}
+      propertyPath: m_text
+      value: "[\uC708\uB4DC \uD0C0\uC6CC]\n\uBC14\uB78C\uC758 \uD798\uC73C\uB85C
+        \uC801\uC5D0\uAC8C \uBC14\uB78C\uC758 \uD0C4\uC744 \uB0A0\uB9B0\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2593872024404066522, guid: d764193777b232d4285f64d75d9cdc65, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4440297171230749818, guid: d764193777b232d4285f64d75d9cdc65, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

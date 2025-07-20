@@ -1097,7 +1097,7 @@ MonoBehaviour:
   lockUI: {fileID: 4714661458598086965}
   explainUI: {fileID: 1178511248763072585}
   descTMpro: {fileID: 2593872024404066522}
-  description: Test 5
+  description: "\uBCA0\uC774\uC9C1\uBCA0\uC774\uC9C1\uBCA0\uC774\uC9C1\uBCA0\uC774\uC9C1\uBCA0\uC78A\u3163\u3131\u3134"
 --- !u!1 &2178123725231239741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   lockUI: {fileID: 3208644281180446546}
   explainUI: {fileID: 1178511248763072585}
   descTMpro: {fileID: 2593872024404066522}
-  description: Test1
+  description: "\uD14C\uC2A4\uD2B8\uC138\uD2B8\uC2A41"
 --- !u!1 &4179363779475708422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,8 +2567,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cd30c548d65753745a2362479665008e, type: 2}
-  m_sharedMaterial: {fileID: -3720827301109938453, guid: cd30c548d65753745a2362479665008e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6923869bd696abc4cab7aa56e0e47df4, type: 2}
+  m_sharedMaterial: {fileID: 7266273948620019866, guid: 6923869bd696abc4cab7aa56e0e47df4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2728,7 +2728,7 @@ MonoBehaviour:
   lockUI: {fileID: 7208842027370607600}
   explainUI: {fileID: 1178511248763072585}
   descTMpro: {fileID: 2593872024404066522}
-  description: Test2
+  description: "\uC544\uC774\uC2A4 \uC2AC\uB85C\uC6B0 \uC544\uC774\uC74F"
 --- !u!1 &4500526279568165615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,7 +3275,7 @@ MonoBehaviour:
   lockUI: {fileID: 3255900208423780923}
   explainUI: {fileID: 1178511248763072585}
   descTMpro: {fileID: 2593872024404066522}
-  description: Test3
+  description: "\uBC88\uAC1C\uBC88\uAC1C\uBC88\uAC1C\uBC88\uAC1C\uBC88\uAC1C"
 --- !u!1 &5680109614032268058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,7 +4000,7 @@ MonoBehaviour:
   lockUI: {fileID: 1729369273428894058}
   explainUI: {fileID: 1178511248763072585}
   descTMpro: {fileID: 2593872024404066522}
-  description: Test6
+  description: "\uD480\uD480\uD480\uD480\uD480\uD480\uD480\uD480\uD480\uD480"
 --- !u!1 &6805167379167215852
 GameObject:
   m_ObjectHideFlags: 0
@@ -5124,7 +5124,7 @@ MonoBehaviour:
   lockUI: {fileID: 7535658513311602122}
   explainUI: {fileID: 1178511248763072585}
   descTMpro: {fileID: 2593872024404066522}
-  description: Test4
+  description: "\uCD94\uC800\uAD6C\uC801\uCD94\uC801\uCD94\uC801\uCD94\uC800\u3131\uCD94\uC801"
 --- !u!1 &8355625646178944825
 GameObject:
   m_ObjectHideFlags: 0
