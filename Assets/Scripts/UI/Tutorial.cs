@@ -28,6 +28,7 @@ public class Tutorial : MonoBehaviour
     public void OpenTutorial()
     {
         tutorialCanvas.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void OnClickArrowBtn(bool isNext) //페이지 이동 콜백
@@ -57,5 +58,6 @@ public class Tutorial : MonoBehaviour
     {
         tutorialCanvas.SetActive(false);
         IsEnd = true;
+        Time.timeScale = 1;
     }
 }

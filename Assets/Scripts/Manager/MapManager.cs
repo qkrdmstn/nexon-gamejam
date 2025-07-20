@@ -3,10 +3,12 @@ using UnityEngine;
 
 public enum TowerType
 {
-    A,
-    B,
-    C,
-    D,
+    DIA,
+    SLOW,
+    LASER,
+    CHASE,
+    FIRE,
+    SQUARE,
 }
 
 public class MapManager : MonoBehaviour
