@@ -10,10 +10,12 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     [SerializeField] GameObject lockUI;
     [SerializeField] Image explainUI;
     [SerializeField] Sprite explainImg;
+    [SerializeField] GameObject rangeVisual;
     Color initColor;
     Vector2 installPos; //타워를 설치할 위치. 드래그 중에 갱신됨
     Vector3 initPos;
     float initScale;
+    float range;
     Image image;
     bool canInstall;
     bool canPurchase;
@@ -38,6 +40,9 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         rectTransform = GetComponent<RectTransform>();
         SetLock();
         explainUI.gameObject.SetActive(false);
+        range = MapManager.Instance.GetTowerRange(type);
+        rangeVisual.transform.localScale = new Vector3(range * 2.3f, range * 2.3f, 1);
+        rangeVisual.SetActive(false);
         CheckPurchase();
         GameManager.instance.OnGolded += CheckPurchase;
     }
@@ -65,6 +70,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         if (!canPurchase) return;
         //Debug.Log("UI 클릭 시작");
         //SetScale(1);
+        rangeVisual.SetActive(true);
         explainUI.gameObject.SetActive(false);
         image.color = redFadeColor;
         canInstall = false;
@@ -85,6 +91,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             SoundManager.Instance.PlaySFX(SFX.TOWER_PLACE);
         }
 
+        rangeVisual.SetActive(false);
         isDragging = false;
         transform.position = initPos;
         SetScale(initScale);
@@ -98,6 +105,7 @@ public class TowerShopIcon : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         //Debug.Log("UI 드래그 중...");
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10);
         transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+
 
         // UI 위치 이동
         rectTransform.anchoredPosition += eventData.delta;

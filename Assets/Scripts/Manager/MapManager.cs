@@ -32,4 +32,9 @@ public class MapManager : MonoBehaviour
     {
         return towerPrefabs[(int)type].GetComponent<TowerBase>().cost;
     }
+
+    public float GetTowerRange(TowerType type)
+    {
+        return towerPrefabs[(int)type].GetComponent<TowerBase>().range;
+    }
 }
