@@ -1,7 +1,9 @@
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 //애니메이션 Enum
 public enum PlayerAnimState
@@ -47,7 +49,9 @@ public class PlayerAnimController : MonoBehaviour
         {
             skeletonAnimationFront.gameObject.SetActive(true);
             skeletonAnimationBack.gameObject.SetActive(false);
-            if(xDir == PlayerXDir.Left)
+            skeletonAnimationFront.skeleton.SetColor(new UnityEngine.Color(1.0f, 1.0f, 1.0f, 1.0f));
+
+            if (xDir == PlayerXDir.Left)
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             else
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
@@ -62,6 +66,8 @@ public class PlayerAnimController : MonoBehaviour
         {
             skeletonAnimationBack.gameObject.SetActive(true);
             skeletonAnimationFront.gameObject.SetActive(false);
+            skeletonAnimationBack.skeleton.SetColor(new UnityEngine.Color(1.0f, 1.0f, 1.0f, 1.0f));
+
             if (xDir == PlayerXDir.Left)
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             else

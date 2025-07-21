@@ -19,6 +19,7 @@ public enum SFX
     TOWER_PLACE,
     CLICK,
     WAVE_CLEAR,
+    PARRY_CHARGED,
 }
 
 public class SoundManager : MonoBehaviour

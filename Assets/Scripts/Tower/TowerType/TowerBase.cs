@@ -6,7 +6,7 @@ public abstract class TowerBase : MonoBehaviour
 {
     [SerializeField] public int cost;
     [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float range;
+    [SerializeField] public float range;
     [SerializeField] GameObject rangeVisual;
     [SerializeField] protected float patternInterval;
     protected bool isReady;
