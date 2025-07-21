@@ -26,8 +26,10 @@ public class Player : MonoBehaviour
     public float parryingGaugeRecoveryInterval;
     public float parryingGaugeRecoveryValue;
 
+    private bool isParryingFirstReady;
+
     public Vector2 moveDir;
-    #region Componets
+    #region Components
     public Rigidbody2D rb { get; private set; }
     public Collider2D col { get; private set; }
     #endregion
@@ -51,6 +53,8 @@ public class Player : MonoBehaviour
         playerAnimController = GetComponent<PlayerAnimController>();
 
         stateMachine.Initialize(idleState);
+
+        isParryingFirstReady = true;
     }
 
     private void Update()
@@ -58,12 +62,23 @@ public class Player : MonoBehaviour
         stateMachine.currentState.Update();
 
         if (isDead) return;
+
         //패링
-        if (Input.GetKeyDown(KeyCode.Space) && parryingGauge >= 100)
+        if (parryingGauge >= 100)
         {
-            StartCoroutine(ParryingCoroutine(parryingRadius));
-            parryingGauge = 0.0f;
+            if (isParryingFirstReady)
+            {
+                SoundManager.Instance.PlaySFX(SFX.PARRY_CHARGED);
+                isParryingFirstReady = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartCoroutine(ParryingCoroutine(parryingRadius));
+                parryingGauge = 0.0f;
+            }
         }
+
 
         //패링 게이지 회복
         parryingGaugeRecoveryTimer -= Time.deltaTime;
@@ -135,6 +150,7 @@ public class Player : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(0.47f);
+        isParryingFirstReady = true;
         isParrying = false;
     }
 

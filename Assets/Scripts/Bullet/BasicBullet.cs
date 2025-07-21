@@ -18,6 +18,7 @@ public class BasicBullet : MonoBehaviour
     {
         circleCollider = GetComponent<CircleCollider2D>();
         rigid = GetComponent<Rigidbody2D>();
+        originalScale = transform.localScale.x;
     }
 
     private void Update()
@@ -35,6 +36,8 @@ public class BasicBullet : MonoBehaviour
     private void OnEnable()
     {
         timer = 0;
+        transform.localScale = new Vector3(originalScale, originalScale);
+        damage = originalDamage;
         rigid.velocity = transform.right * speed;
     }
 
@@ -43,13 +46,13 @@ public class BasicBullet : MonoBehaviour
         if (collision.CompareTag("Monster"))
         {
             //몬스터 데미지 입히는 함수
-            collision.GetComponent<MonsterHP>().OnDamage(damage);            
+            collision.GetComponent<MonsterHP>().OnDamage(damage);
             Die();
         }
         else if (collision.CompareTag("Player"))
         {
             //플레이어 데미지 입히는 함수
-            collision.GetComponent<Player>().OnDamage(1);            
+            collision.GetComponent<Player>().OnDamage(1);
             Die();
         }
     }
@@ -71,7 +74,5 @@ public class BasicBullet : MonoBehaviour
     {
         timer = 55;
         ObjectPool.Instance.ReturnObject(gameObject);
-        transform.localScale = new Vector3(originalScale, originalScale);
-        damage = originalDamage;
     }
 }
